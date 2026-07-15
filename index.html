@@ -23,21 +23,7 @@
                 </div>
 
                 <!-- ON THE AIR -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
-                    <h3 style="color: #38bdf8; margin-top: 0; border-bottom: 2px solid #1d4ed8; padding-bottom: 6px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">On The Air</h3>
-                    
-                    <!-- Interactive Stream/Monitor Link -->
-                    <a href="https://www.broadcastify.com/" target="_blank" style="text-decoration: none; display: block; margin-bottom: 12px;">
-                        <div style="display: flex; align-items: center; background-color: #0f172a; padding: 8px 12px; border-radius: 4px; border-left: 4px solid #22c55e; transition: background-color 0.2s;">
-                            <span style="width: 10px; height: 10px; background-color: #22c55e; border-radius: 50%; margin-right: 10px; display: inline-block;"></span>
-                            <span style="font-weight: bold; font-size: 0.9rem; color: #ffffff;">Listen Live Feed</span>
-                        </div>
-                    </a>
-                    
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">VHF/UHF</span><span style="color: #ffffff; font-weight: 500;">147.180+ (PL 162.2)</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">Digital Voice</span><span style="color: #ffffff; font-weight: 500;">DMR TG 31329</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">CW Status</span><span style="color: #ffffff; font-weight: 500;">Head Copy Practice</span></div>
-                </div>
+               =IF(A2="Off the Air", "<div style='font-size: 0.95rem; color: #94a3b8; font-weight: bold;'><span style='color: #64748b; font-size: 1.2rem; margin-right: 6px;'>●</span>OFF THE AIR</div><div style='font-size: 0.85rem; color: #64748b; margin-top: 4px;'>Catch you on the bands next time!</div>", IF(A2="Monitoring", "<div style='font-size: 0.95rem; color: #eab308; font-weight: bold;'><span style='color: #eab308; font-size: 1.2rem; margin-right: 6px;'>●</span>MONITORING</div><div style='font-size: 0.85rem; color: #cbd5e1; margin-top: 4px;'>"&B2&" "&C2&"</div>", "<div style='font-size: 0.95rem; color: #22c55e; font-weight: bold;'><span style='color: #22c55e; font-size: 1.2rem; margin-right: 6px;'>●</span>ON THE AIR</div><div style='font-size: 0.85rem; color: #cbd5e1; margin-top: 4px;'><a href='"&IF(B2="Brandmeister", "https://hoseline.brandmeister.network/?tg="&C2, IF(B2="TGIF", "http://tgif.network/", "#"))&"' target='_blank' style='color: #38bdf8; text-decoration: underline; font-weight: 500;'>"&B2&" Talkgroup "&C2&"</a></div>"))
 
                 <!-- QUICK LINKS -->
                 <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
