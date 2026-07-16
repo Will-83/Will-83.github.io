@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            background-color: #0b131f;
+            color: #e2e8f0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -18,22 +18,270 @@
             box-sizing: border-box;
         }
         .card {
-            background-color: #1e1e1e;
+            background-color: #111a2e;
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.5);
             width: 100%;
             max-width: 400px;
+            border: 1px solid #1e293b;
         }
-        h2 { margin-top: 0; color: #ffffff; text-align: center; }
-        label { display: block; margin: 15px 0 5px; font-weight: bold; font-size: 0.9rem; }
+        h2 { margin-top: 0; color: #38bdf8; text-align: center; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; font-size: 0.9rem; color: #94a3b8; }
         select, input, button {
             width: 100%;
             padding: 12px;
             margin-bottom: 10px;
             border-radius: 6px;
-            border: 1px solid #333;
-            background-color: #2a2a2a;
+            border: 1px solid #1e293b;
+            background-color: #1e293b;
+            color: #fff;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        select:focus, input:focus { border-color: #1d4ed8; outline: none; }
+        button {
+            background-color: #1d4ed8;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #2563eb; }
+        button:disabled { background-color: #334155; cursor: not-allowed; }
+        #status-msg { text-align: center; margin-top: 15px; font-weight: bold; }
+        .hidden { display: none; }
+        canvas { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>📡 Status Updater</h2>
+    
+    <label for="github-token">GitHub Personal Access Token</label>
+    <input type="password" id="github-token" placeholder="Paste classic token here...">
+    <button id="save-token-btn" onclick="saveToken()">Save Token</button>
+
+    <div id="controls-section" class="hidden">
+        <label for="status">Status</label>
+        <select id="status" onchange="toggleInputs()">
+            <option value="ON THE AIR">🟢 ON THE AIR</option>
+            <option value="MONITORING">🟡 MONITORING</option>
+            <option value="PORTABLE / POTA">🏕️ PORTABLE / POTA</option>
+            <option value="CW PRACTICE">📻 CW PRACTICE</option>
+            <option value="BUSY">🔴 BUSY</option>
+            <option value="OFF AIR">⚫ OFF AIR</option>
+        </select>
+
+        <div id="dynamic-fields">
+            <label for="mode">Mode</label>
+            <select id="mode">
+                <option value="DMR">DMR</option>
+                <option value="YSF">YSF</option>
+                <option value="HF">HF</option>
+                <option value="FM">FM</option>
+                <option value="FT8">FT8</option>
+                <option value="CW">CW</option>
+            </select>
+
+            <label for="details">Talkgroup / Frequency / Note</label>
+            <input type="text" id="details" placeholder="e.g., 31259 Missouri or 14.300 MHz">
+        </div>
+
+        <button id="update-btn" onclick="generateAndUpload()">Update Status Image</button>
+    </div>
+
+    <div id="status-msg"></div>
+</div>
+
+<canvas id="statusCanvas" width="240"></canvas>
+
+<script>
+    const REPO = "Will-83/Will-83.github.io";
+    const FILE_PATH = "status.png";
+
+    window.onload = function() {
+        const savedToken = localStorage.getItem('gh_status_token');
+        if (savedToken) {
+            document.getElementById('github-token').value = savedToken;
+            document.getElementById('controls-section').classList.remove('hidden');
+            document.getElementById('save-token-btn').innerText = "Update Saved Token";
+        }
+    }
+
+    function saveToken() {
+        const token = document.getElementById('github-token').value.trim();
+        if (token) {
+            localStorage.setItem('gh_status_token', token);
+            document.getElementById('controls-section').classList.remove('hidden');
+            document.getElementById('save-token-btn').innerText = "Update Saved Token";
+            showMsg("Token saved securely!", "#38bdf8");
+        }
+    }
+
+    function toggleInputs() {
+        const status = document.getElementById('status').value;
+        const dynamicFields = document.getElementById('dynamic-fields');
+        if (status === "OFF AIR") {
+            dynamicFields.style.display = "none";
+        } else {
+            dynamicFields.style.display = "block";
+        }
+    }
+
+    function showMsg(text, color) {
+        const msgDiv = document.getElementById('status-msg');
+        msgDiv.innerText = text;
+        msgDiv.style.color = color;
+    }
+
+    async function generateAndUpload() {
+        const token = localStorage.getItem('gh_status_token');
+        if (!token) return showMsg("Missing GitHub Token!", "red");
+
+        const updateBtn = document.getElementById('update-btn');
+        updateBtn.disabled = true;
+        showMsg("Generating image...", "#e0e0e0");
+
+        const status = document.getElementById('status').value;
+        const mode = document.getElementById('mode').value;
+        const details = document.getElementById('details').value.trim();
+
+        const canvas = document.getElementById('statusCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // --- ADAPTIVE WIDTH & HEIGHT ---
+        // Narrowed to 240px to fit comfortably inside your 280px sidebar without padding spillover
+        canvas.width = 240; 
+        
+        let calculatedHeight = 65; // Baseline height for just Status + Timestamp
+        if (status !== "OFF AIR") {
+            calculatedHeight += 30; // Space for Mode row
+            if (details) {
+                calculatedHeight += 25; // Space for Details row
+            }
+        }
+        canvas.height = calculatedHeight;
+
+        // --- MATCHING THEME STYLES ---
+        ctx.fillStyle = "#111a2e"; // Exact background color match for your sidebar boxes
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        // Status Indicators & Colors
+        let dotColor = "#94a3b8"; 
+        if (status === "ON THE AIR") dotColor = "#22c55e";      // Bright Green
+        if (status === "MONITORING") dotColor = "#eab308";      // Bright Yellow
+        if (status === "PORTABLE / POTA") dotColor = "#38bdf8"; // Light Sky Blue
+        if (status === "CW PRACTICE") dotColor = "#a855f7";     // Purple Accent
+        if (status === "BUSY") dotColor = "#ef4444";            // Red
+
+        // Indicator Dot Positioned Cleanly
+        ctx.beginPath();
+        ctx.arc(15, 22, 6, 0, 2 * Math.PI);
+        ctx.fillStyle = dotColor;
+        ctx.fill();
+
+        // Main Bold Label Status Text
+        ctx.font = "bold 14px 'Segoe UI', sans-serif";
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(status, 32, 27);
+
+        let currentY = 52;
+
+        // Conditional rendering for active metrics rows
+        if (status !== "OFF AIR") {
+            ctx.font = "13px 'Segoe UI', sans-serif";
+            ctx.fillStyle = "#94a3b8";
+            ctx.fillText("Mode", 8, currentY);
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 13px 'Segoe UI', sans-serif";
+            ctx.fillText(mode, 65, currentY);
+            currentY += 25;
+
+            if (details) {
+                ctx.font = "13px 'Segoe UI', sans-serif";
+                ctx.fillStyle = "#94a3b8";
+                ctx.fillText("Details", 8, currentY);
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "500 12px 'Segoe UI', sans-serif";
+                
+                // Truncate long strings elegantly if they hit the edge of the sidebar box
+                let printDetails = details;
+                if (ctx.measureText(printDetails).width > 165) {
+                    while (ctx.measureText(printDetails + "...").width > 165 && printDetails.length > 0) {
+                        printDetails = printDetails.slice(0, -1);
+                    }
+                    printDetails += "...";
+                }
+                ctx.fillText(printDetails, 65, currentY);
+                currentY += 25;
+            }
+        } else {
+            ctx.font = "italic 12px 'Segoe UI', sans-serif";
+            ctx.fillStyle = "#64748b";
+            ctx.fillText("No active operating status", 8, currentY);
+            currentY += 25;
+        }
+
+        // Tiny footer timestamp
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " " + now.toLocaleDateString([], {month:'short', day:'numeric'});
+        ctx.font = "italic 10px 'Segoe UI', sans-serif";
+        ctx.fillStyle = "#475569";
+        ctx.fillText("Updated: " + timeString, 8, canvas.height - 10);
+
+        // Convert canvas data to raw image stream
+        canvas.toBlob(async function(blob) {
+            const reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = async function() {
+                const base64Data = reader.result.split(',')[1];
+                showMsg("Updating GitHub...", "#e0e0e0");
+                
+                let sha = "";
+                const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`;
+                
+                try {
+                    const getRes = await fetch(url, { headers: { "Authorization": `token ${token}` } });
+                    if (getRes.status === 200) {
+                        const data = await getRes.json();
+                        sha = data.sha;
+                    }
+
+                    const putBody = {
+                        message: "Status Update (Theme Coordinate Update)",
+                        content: base64Data,
+                        branch: "main"
+                    };
+                    if (sha) putBody.sha = sha;
+
+                    const putRes = await fetch(url, {
+                        method: "PUT",
+                        headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                        body: JSON.stringify(putBody)
+                    });
+
+                    if (putRes.status === 200 || putRes.status === 201) {
+                        showMsg("Success! Status image updated live.", "#22c55e");
+                    } else {
+                        const errData = await putRes.json();
+                        showMsg("Upload Error: " + errData.message, "red");
+                    }
+                } catch (err) {
+                    showMsg("Network error trying to contact GitHub.", "red");
+                } finally {
+                    updateBtn.disabled = false;
+                }
+            };
+        }, 'image/png');
+    }
+</script>
+
+</body>
+</html>
             color: #fff;
             font-size: 1rem;
             box-sizing: border-box;
