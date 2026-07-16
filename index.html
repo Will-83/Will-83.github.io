@@ -1,149 +1,150 @@
-<div style="background-color: #0b131f; color: #e2e8f0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; max-width: 1000px; margin: 0 auto; border-radius: 8px; box-sizing: border-box;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W8MB - Amateur Radio Station</title>
+    <!-- Link to your external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for the signature -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-wrapper">
     
     <!-- HEADER (Image Only) -->
-    <div style="margin-bottom: 20px; width: 100%;">
-        <img src="images/Header.jpg" alt="W8MB Banner" style="width: 100%; height: auto; border-radius: 6px; border: 1px solid #1e293b; display: block;" />
+    <div class="header-banner">
+        <img src="images/Header.jpg" alt="W8MB Banner" />
     </div>
 
     <!-- MAIN BODY LAYOUT -->
-    <table role="presentation" style="width: 100%; border-collapse: collapse; border: none; margin: 0; padding: 0;">
+    <table role="presentation" class="layout-table">
         <tr>
             <!-- LEFT SIDEBAR -->
-            <td style="width: 280px; vertical-align: top; padding-right: 20px; padding-bottom: 20px;">
+            <td class="sidebar-col">
                 
                 <!-- STATION INFO -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
-                    <h3 style="color: #38bdf8; margin-top: 0; border-bottom: 2px solid #1d4ed8; padding-bottom: 6px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Station Info</h3>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">QTH</span><span style="color: #ffffff; font-weight: 500;">Mansfield, MO</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">County</span><span style="color: #ffffff; font-weight: 500;">Wright County</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">Grid</span><span style="color: #ffffff; font-weight: 500;">EM47</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">First Lic.</span><span style="color: #ffffff; font-weight: 500;">2020</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">Extra Cl.</span><span style="color: #ffffff; font-weight: 500;">June 2026</span></div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem;"><span style="color: #94a3b8;">VE Status</span><span style="color: #ffffff; font-weight: 500;">July 2026</span></div>
+                <div class="card">
+                    <h3 class="section-title">Station Info</h3>
+                    <div class="sidebar-row"><span>QTH</span><strong>Mansfield, MO</strong></div>
+                    <div class="sidebar-row"><span>County</span><strong>Wright County</strong></div>
+                    <div class="sidebar-row"><span>Grid</span><strong>EM47</strong></div>
+                    <div class="sidebar-row"><span>First Lic.</span><strong>2020</strong></div>
+                    <div class="sidebar-row"><span>Extra Cl.</span><strong>June 2026</strong></div>
+                    <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
                 </div>
 
-              <!-- ON THE AIR -->
-		<div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px; margin-bottom: 			20px;">
-    		<h3 style="color: #38bdf8; margin-top: 0; border-bottom: 2px solid #1d4ed8; padding-bottom: 6px; font-size: 1rem; letter-		spacing: 1px; text-transform: uppercase;">On The Air</h3>
-    
-		<img src="https://Will-83.github.io/status.png" alt="Ham Radio Status" />
-
-</div>
-               
+                <!-- ON THE AIR -->
+                <div class="card">
+                    <h3 class="section-title">On The Air</h3>
+                    <img src="https://Will-83.github.io/status.png" alt="Ham Radio Status" class="status-img" />
+                </div>
 
                 <!-- QUICK LINKS -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px; margin-bottom: 20px;">
-                    <h3 style="color: #38bdf8; margin-top: 0; border-bottom: 2px solid #1d4ed8; padding-bottom: 6px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Quick Links</h3>
-                    <a href="https://logbook.qrz.com" target="_blank" style="display: block; background-color: #1e293b; color: #ffffff; text-align: center; padding: 10px; margin-bottom: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; border: 1px solid #334155; font-weight: bold;">QRZ Logbook</a>
-                    <a href="https://lotw.arrl.org/lotwuser/default" target="_blank" style="display: block; background-color: #1e293b; color: #ffffff; text-align: center; padding: 10px; margin-bottom: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; border: 1px solid #334155; font-weight: bold;">LoTW Portal</a>
-                    <a href="https://www.eqsl.cc/Member.cfm?W8MB" target="_blank" style="display: block; background-color: #1e293b; color: #ffffff; text-align: center; padding: 10px; margin-bottom: 8px; border-radius: 4px; text-decoration: none; font-size: 0.9rem; border: 1px solid #334155; font-weight: bold;">eQSL Profile</a>
+                <div class="card">
+                    <h3 class="section-title">Quick Links</h3>
+                    <a href="https://logbook.qrz.com" target="_blank" class="btn">QRZ Logbook</a>
+                    <a href="https://lotw.arrl.org/lotwuser/default" target="_blank" class="btn">LoTW Portal</a>
+                    <a href="https://www.eqsl.cc/Member.cfm?W8MB" target="_blank" class="btn">eQSL Profile</a>
                 </div>
 
                 <!-- SOLAR CONDITIONS -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px; margin-bottom: 20px; text-align: center;">
-                    <h3 style="color: #38bdf8; margin-top: 0; border-bottom: 2px solid #1d4ed8; padding-bottom: 6px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; text-align: left;">Propagation</h3>
-                    <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Click to add Solar-Terrestrial Data to your website!" style="display: block; margin: 0 auto;">
-                        <img src="https://www.hamqsl.com/solar100sc.php" alt="Solar-Terrestrial Data" style="width: 100%; height: auto; border-radius: 4px; border: none; display: block;" />
+                <div class="card text-center">
+                    <h3 class="section-title text-left">Propagation</h3>
+                    <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Click to add Solar-Terrestrial Data to your website!" class="prop-link">
+                        <img src="https://www.hamqsl.com/solar100sc.php" alt="Solar-Terrestrial Data" class="prop-img" />
                     </a>
                 </div>
                 
                 <!-- FIND ME -->
-<div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 15px;">
-    <h3 style="color: #38bdf8; margin-top: 0; border-bottom: 2px solid #1d4ed8; padding-bottom: 6px; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Find Me</h3>
-    
-    <!-- Email Row -->
-    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; margin-bottom: 12px;">
-        <span style="color: #94a3b8;">Email</span>
-        <span style="color: #38bdf8; font-weight: 500; font-size: 0.75rem;">will.w8mb@gmail.com</span>
-    </div>
-
-    <!-- Socials Row (With Icons!) -->
-    <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; border-top: 1px solid #1e293b; padding-top: 12px;">
-        <span style="color: #94a3b8;">Social</span>
-        <div style="display: flex; gap: 15px; align-items: center;">
-            <!-- Facebook Icon -->
-            <a href="https://www.facebook.com/wbest522/" target="_blank" style="text-decoration: none; display: inline-block; vertical-align: middle;">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" style="width: 20px; height: 20px; filter: invert(74%) sepia(35%) saturate(1973%) hue-rotate(178deg) brightness(101%) contrast(98%);" />
-            </a>
-            <!-- Instagram Icon -->
-            <a href="https://www.instagram.com/wbest522/" target="_blank" style="text-decoration: none; display: inline-block; vertical-align: middle;">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" style="width: 20px; height: 20px; filter: invert(74%) sepia(35%) saturate(1973%) hue-rotate(178deg) brightness(101%) contrast(98%);" />
-            </a>
-        </div>
-    </div>
-</div>
+                <div class="card">
+                    <h3 class="section-title">Find Me</h3>
+                    <div class="sidebar-row bottom-border">
+                        <span>Email</span>
+                        <span class="email-text">will.w8mb@gmail.com</span>
+                    </div>
+                    <div class="sidebar-row social-row">
+                        <span>Social</span>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/wbest522/" target="_blank">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" class="social-icon" />
+                            </a>
+                            <a href="https://www.instagram.com/wbest522/" target="_blank">
+                                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="social-icon" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
             </td>
 
             <!-- RIGHT MAIN CONTENT -->
-            <td style="vertical-align: top; padding-bottom: 20px;">
+            <td class="main-col">
                 
                 <!-- HELLO CARD -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
-                   <h2 style="color: #fcd34d; font-family: inherit; margin-top: 0; font-size: 1.3rem; letter-spacing: 1px; font-weight: bold; text-shadow: 0px 1px 0px #b45309, 0px 2px 0px #92400e, 0px 3px 1px rgba(0,0,0,0.5), 0px 0px 5px rgba(251,191,36,0.6), 0px 0px 15px rgba(251,191,36,0.3);">HELLO FROM W8MB!</h2>
-                    <table role="presentation" style="width: 100%; border-collapse: collapse; border: none;">
+                <div class="card padding-lg">
+                    <h2 class="hello-header">HELLO FROM W8MB!</h2>
+                    <table role="presentation" class="inner-layout-table">
                         <tr>
-                            <td style="vertical-align: top; padding-right: 20px; font-size: 0.95rem; line-height: 1.6; color: #cbd5e1;">
+                            <td class="bio-text-cell">
                                 My amateur radio journey began in 2020. It started with off-roading and a YouTube video about trail communications that introduced me to ham radio. What began as a way to talk on the trail has grown into a deep passion for learning, building, experimenting, and helping others discover the hobby.<br><br>
                                 Today, I love operating HF portable, assembling antennas, digital modes, and diving head-first into Morse code. I also serve as an EMT and volunteer firefighter, and enjoy keeping our department's radio programming optimized. Thanks for stopping by!<br><br>
-                                <strong style="display: block; margin-top: 15px; padding-left: 10px; line-height: 1.0;">
-									<div style="margin: 15px 0; font-family: Arial, sans-serif; font-size: 0.95rem; color: #cbd5e1; line-height: 1.6; text-align: center;">
-    For more photos, background, and the stories behind the gear: 
-    <a href="https://will-83.github.io/about.html" target="_blank" style="color: #38bdf8; font-weight: bold; text-decoration: underline; margin-left: 5px;">
-        Read my complete station journey here.
-    </a>
-</div>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
-    </style>
-    <span style="font-family: 'Alex Brush', cursive; font-size: 2.4rem; color: #ffffff; font-weight: normal; font-style: normal;">73,</span><br>
-    <span style="font-family: 'Alex Brush', cursive; font-size: 2.4rem; color: #ffffff; font-weight: normal; font-style: normal; padding-left: 35px;">Will</span>
-</strong>
+                                
+                                <div class="station-journey-link">
+                                    For more photos, background, and the stories behind the gear: 
+                                    <a href="https://will-83.github.io/about.html" target="_blank">Read my complete station journey here.</a>
+                                </div>
+                                <div class="signature">
+                                    <span class="sig-73">73,</span><br>
+                                    <span class="sig-name">Will</span>
+                                </div>
                             </td>
-                            <td style="width: 250px; vertical-align: top; text-align: center;">
-<!-- Wrap the image in a link pointing to your new HTML file -->
-							<a href="field-day-2026.html">
-   							 <img src="images/Fire_tower.jpg" alt="Field Day 2026" style="max-width: 100%; height: auto;">
-</a>                                <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 8px; line-height: 1.3;">ARRL Field Day 2026<br>Portable from a 100' Missouri watchtower</div>
+                            <td class="bio-img-cell">
+                                <a href="field-day-2026.html">
+                                    <img src="images/Fire_tower.jpg" alt="Field Day 2026" class="bio-img">
+                                </a>
+                                <div class="img-caption">ARRL Field Day 2026<br>Portable from a 100' Missouri watchtower</div>
                             </td>
                         </tr>
                     </table>
                 </div>
 
                 <!-- MY STATION -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
-                    <h2 style="color: #38bdf8; margin-top: 0; font-size: 1.3rem; letter-spacing: 1px;">My Station</h2>
-                    <table role="presentation" style="width: 100%; border-collapse: collapse; border: none;">
+                <div class="card padding-lg">
+                    <h2 class="section-heading">My Station</h2>
+                    <table role="presentation" class="station-grid-table">
                         <tr>
-                            <td style="width: 25%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; padding: 12px; border-radius: 4px; border: 1px solid #1e293b; height: 110px;">
-                                    <div style="color: #38bdf8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">HF Portable</div>
-                                    <div style="font-size: 0.9rem; color: #ffffff; font-weight: bold;">Yaesu FT-857D</div>
-                                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Homebrew Linked Dipole (40m-10m)</div>
+                            <td class="grid-cell">
+                                <div class="grid-card">
+                                    <div class="grid-tag">HF Portable</div>
+                                    <div class="grid-title">Yaesu FT-857D</div>
+                                    <div class="grid-desc">Homebrew Linked Dipole (40m-10m)</div>
                                 </div>
                             </td>
-                            <td style="width: 25%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; padding: 12px; border-radius: 4px; border: 1px solid #1e293b; height: 110px;">
-                                    <div style="color: #38bdf8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">VHF / UHF Mobile</div>
-                                    <div style="font-size: 0.9rem; color: #ffffff; font-weight: bold;">TYT TH-9800</div>
-                                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Quad-band using N9TAX Slim-Jim</div>
+                            <td class="grid-cell">
+                                <div class="grid-card">
+                                    <div class="grid-tag">VHF / UHF Mobile</div>
+                                    <div class="grid-title">TYT TH-9800</div>
+                                    <div class="grid-desc">Quad-band using N9TAX Slim-Jim</div>
                                 </div>
                             </td>
-                            <td style="width: 25%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; padding: 12px; border-radius: 4px; border: 1px solid #1e293b; height: 110px;">
-                                    <div style="color: #38bdf8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">Digital Voice</div>
-                                    <div style="font-size: 0.85rem; color: #ffffff; font-weight: bold;">DMR / YSF / NXDN</div>
-                                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">Baofeng DM-32, Kenwood NX-220, MMDVM Hotspot</div>
+                            <td class="grid-cell">
+                                <div class="grid-card">
+                                    <div class="grid-tag">Digital Voice</div>
+                                    <div class="grid-title">DMR / YSF / NXDN</div>
+                                    <div class="grid-desc">Baofeng DM-32, Kenwood NX-220, MMDVM Hotspot</div>
                                 </div>
                             </td>
-                            <td style="width: 25%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; padding: 12px; border-radius: 4px; border: 1px solid #1e293b; height: 110px;">
-                                    <div style="color: #38bdf8; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; margin-bottom: 4px;">Handhelds</div>
-                                    <div style="font-size: 0.9rem; color: #ffffff; font-weight: bold;">Baofeng UV-5R</div>
-                                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">The original rig & reliable backup</div>
-<div style="font-size: 0.9rem; color: #ffffff; font-weight: bold;">Baofeng 5R Mini</div>
-                                    <div style="font-size: 0.75rem; color: #94a3b8; margin-top: 2px;">EDC For Size</div>
-
+                            <td class="grid-cell">
+                                <div class="grid-card">
+                                    <div class="grid-tag">Handhelds</div>
+                                    <div class="grid-title">Baofeng UV-5R</div>
+                                    <div class="grid-desc">The original rig & reliable backup</div>
+                                    <div class="grid-title spacing-top">Baofeng 5R Mini</div>
+                                    <div class="grid-desc">EDC For Size</div>
                                 </div>
                             </td>
                         </tr>
@@ -151,34 +152,34 @@
                 </div>
 
                 <!-- LATEST PROJECTS -->
-                <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
-                    <h2 style="color: #38bdf8; margin-top: 0; font-size: 1.3rem; letter-spacing: 1px;">Latest Workbench Projects</h2>
-                    <table role="presentation" style="width: 100%; border-collapse: collapse; border: none;">
+                <div class="card padding-lg">
+                    <h2 class="section-heading">Latest Workbench Projects</h2>
+                    <table role="presentation" class="projects-grid-table">
                         <tr>
-                            <td style="width: 33.3%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; height: 210px;">
-                                    <img src="images/Dipole.jpg" alt="Linked Dipole" style="width: 100%; height: 110px; object-fit: cover;" />
-                                    <div style="padding: 10px;">
-                                        <div style="font-size: 0.9rem; font-weight: bold; color: #ffffff; margin-bottom: 4px;">Linked Dipole</div>
-                                        <div style="font-size: 0.75rem; color: #94a3b8; line-height: 1.4;">10m-40m multi-band build utilizing an FT-240-31 common-mode choke.</div>
+                            <td class="project-cell">
+                                <div class="project-card">
+                                    <img src="images/Dipole.jpg" alt="Linked Dipole" />
+                                    <div class="project-card-body">
+                                        <div class="project-title">Linked Dipole</div>
+                                        <div class="project-desc">10m-40m multi-band build utilizing an FT-240-31 common-mode choke.</div>
                                     </div>
                                 </div>
                             </td>
-                            <td style="width: 33.3%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; height: 210px;">
-                                    <img src="images/Key.jpg" alt="Morse Code Key" style="width: 100%; height: 110px; object-fit: cover;" />
-                                    <div style="padding: 10px;">
-                                        <div style="font-size: 0.9rem; font-weight: bold; color: #ffffff; margin-bottom: 4px;">Learning CW</div>
-                                        <div style="font-size: 0.75rem; color: #94a3b8; line-height: 1.4;">Focusing strictly on pure audio head-copy via Morse Ninja with my Putikeeg keys.</div>
+                            <td class="project-cell">
+                                <div class="project-card">
+                                    <img src="images/Key.jpg" alt="Morse Code Key" />
+                                    <div class="project-card-body">
+                                        <div class="project-title">Learning CW</div>
+                                        <div class="project-desc">Focusing strictly on pure audio head-copy via Morse Ninja with my Putikeeg keys.</div>
                                     </div>
                                 </div>
                             </td>
-                            <td style="width: 33.3%; padding: 6px; vertical-align: top;">
-                                <div style="background-color: #0f172a; border: 1px solid #1e293b; border-radius: 6px; overflow: hidden; height: 210px;">
-                                    <img src="images/Wio_L1.jpg" alt="Meshtastic Node" style="width: 100%; height: 110px; object-fit: cover;" />
-                                    <div style="padding: 10px;">
-                                        <div style="font-size: 0.9rem; font-weight: bold; color: #ffffff; margin-bottom: 4px;">Meshtastic Nodes</div>
-                                        <div style="font-size: 0.75rem; color: #94a3b8; line-height: 1.4;">Configuring Heltec V4 base nodes and custom Wio Tracker L1 enclosures.</div>
+                            <td class="project-cell">
+                                <div class="project-card">
+                                    <img src="images/Wio_L1.jpg" alt="Meshtastic Node" />
+                                    <div class="project-card-body">
+                                        <div class="project-title">Meshtastic Nodes</div>
+                                        <div class="project-desc">Configuring Heltec V4 base nodes and custom Wio Tracker L1 enclosures.</div>
                                     </div>
                                 </div>
                             </td>
@@ -187,37 +188,37 @@
                 </div>
 
                 <!-- TIMELINE & OFF THE AIR SPLIT -->
-                <table role="presentation" style="width: 100%; border-collapse: collapse; border: none;">
+                <table role="presentation" class="split-table">
                     <tr>
-                        <td style="width: 50%; padding-right: 10px; vertical-align: top;">
-                            <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 20px; height: auto;">
-                                <h2 style="color: #38bdf8; margin-top: 0; font-size: 1.3rem; letter-spacing: 1px;">My Story</h2>
-                                <div style="position: relative; padding-left: 15px; border-left: 2px solid #1e293b;">
-                                    <div style="position: relative; margin-bottom: 12px;">
-                                        <div style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">2020</div>
-                                        <div style="font-size: 0.8rem; color: #cbd5e1;">Got licensed (Tech + General) after discovering ham radio through off-roading. Built first HF antennas.</div>
+                        <td class="split-cell padding-right">
+                            <div class="card padding-lg height-full">
+                                <h2 class="section-heading">My Story</h2>
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">2020</div>
+                                        <div class="timeline-desc">Got licensed (Tech + General) after discovering ham radio through off-roading. Built first HF antennas.</div>
                                     </div>
-                                    <div style="position: relative; margin-bottom: 12px;">
-                                        <div style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">2026</div>
-                                        <div style="font-size: 0.8rem; color: #cbd5e1;">Earned Amateur Extra class license & became a Volunteer Examiner (VE). Operated from the 100ft watchtower.</div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-year">2026</div>
+                                        <div class="timeline-desc">Earned Amateur Extra class license & became a Volunteer Examiner (VE). Operated from the 100ft watchtower.</div>
                                     </div>
-                                    <div style="position: relative;">
-                                        <div style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">Current</div>
-                                        <div style="font-size: 0.8rem; color: #cbd5e1;">Diving into CW head copy, building portable gear, and expanding local digital infrastructure.</div>
+                                    <div class="timeline-item no-margin">
+                                        <div class="timeline-year">Current</div>
+                                        <div class="timeline-desc">Diving into CW head copy, building portable gear, and expanding local digital infrastructure.</div>
                                     </div>
                                 </div>
                             </div>
                         </td>
-                        <td style="width: 50%; padding-left: 10px; vertical-align: top;">
-                            <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 20px; height: auto;">
-                                <h2 style="color: #38bdf8; margin-top: 0; font-size: 1.3rem; letter-spacing: 1px;">Off The Air</h2>
-                                <ul style="list-style: none; padding: 0; margin: 0;">
-                                    <li style="font-size: 0.85rem; padding: 5px 0; color: #cbd5e1; display: flex; align-items: center;"><span style="color: #f59e0b; margin-right: 8px; font-weight: bold;">»</span> EMT & Volunteer Firefighter</li>
-                                    <li style="font-size: 0.85rem; padding: 5px 0; color: #cbd5e1; display: flex; align-items: center;"><span style="color: #f59e0b; margin-right: 8px; font-weight: bold;">»</span> Radio Programming for First Responders</li>
-                                    <li style="font-size: 0.85rem; padding: 5px 0; color: #cbd5e1; display: flex; align-items: center;"><span style="color: #f59e0b; margin-right: 8px; font-weight: bold;">»</span> 3D Printing & CAD (Ender 3 / Klipper / PETG)</li>
-                                    <li style="font-size: 0.85rem; padding: 5px 0; color: #cbd5e1; display: flex; align-items: center;"><span style="color: #f59e0b; margin-right: 8px; font-weight: bold;">»</span> Jeep Wranglers & Off-Roading Adventures</li>
-                                    <li style="font-size: 0.85rem; padding: 5px 0; color: #cbd5e1; display: flex; align-items: center;"><span style="color: #f59e0b; margin-right: 8px; font-weight: bold;">»</span> Hiking, Camping, Hunting & Fishing</li>
- <li style="font-size: 0.85rem; padding: 5px 0; color: #cbd5e1; display: flex; align-items: center;"><span style="color: #f59e0b; margin-right: 8px; font-weight: bold;">»</span> Locksport</li>
+                        <td class="split-cell padding-left">
+                            <div class="card padding-lg height-full">
+                                <h2 class="section-heading">Off The Air</h2>
+                                <ul class="interests-list">
+                                    <li><span>»</span> EMT & Volunteer Firefighter</li>
+                                    <li><span>»</span> Radio Programming for First Responders</li>
+                                    <li><span>»</span> 3D Printing & CAD (Ender 3 / Klipper / PETG)</li>
+                                    <li><span>»</span> Jeep Wranglers & Off-Roading Adventures</li>
+                                    <li><span>»</span> Hiking, Camping, Hunting & Fishing</li>
+                                    <li><span>»</span> Locksport</li>
                                 </ul>
                             </div>
                         </td>
@@ -228,41 +229,35 @@
         </tr>
     </table>
 
-   <!-- AFFILIATIONS FOOTER STRIP -->
-    <div style="background-color: #111a2e; border: 1px solid #1e293b; border-radius: 6px; padding: 20px; margin-top: 20px; display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; text-align: center;">
-        
-        <!-- ARRL VE LOGO LINK -->
-        <div style="margin: 10px; min-width: 150px;">
-            <a href="https://www.arrl.org/volunteer-examiners" target="_blank" style="display: inline-block; text-decoration: none;">
-                <img src="images/ARRL_logo.jpg" alt="ARRL VE Logo" style="height: 55px; width: auto; display: block; border: none; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));" />
+    <!-- AFFILIATIONS FOOTER STRIP -->
+    <div class="footer-affiliations">
+        <div class="logo-item">
+            <a href="https://www.arrl.org/volunteer-examiners" target="_blank">
+                <img src="images/ARRL_logo.jpg" alt="ARRL VE Logo" />
             </a>
         </div>
-
-        <!-- SMARC LOGO LINK -->
-         <div style="margin: 10px; min-width: 150px;">
-            <a href="https://smarc.org/" target="_blank" style="display: inline-block; text-decoration: none;">
-                <img src="images/SMARC_logo.jpg" alt="SMARC Logo" style="height: 55px; width: auto; display: block; border: none; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));" />
+        <div class="logo-item">
+            <a href="https://smarc.org/" target="_blank">
+                <img src="images/SMARC_logo.jpg" alt="SMARC Logo" />
             </a>
         </div>
-
-        <!-- LZMESH LOGO LINK -->
-        <div style="margin: 10px; min-width: 150px;">
-            <a href="https://lzmesh.com" target="_blank" style="display: inline-block; text-decoration: none;">
-                <img src="images/LZMesh_logo.jpg" alt="LZMesh Community" style="height: 55px; width: auto; display: block; border: none; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));" />
+        <div class="logo-item">
+            <a href="https://lzmesh.com" target="_blank">
+                <img src="images/LZMesh_logo.jpg" alt="LZMesh Community" />
             </a>
         </div>
-
-        <!-- LZARC LOGO LINK -->
-        <div style="margin: 10px; min-width: 150px;">
-            <a href="https://lzarc.com" target="_blank" style="display: inline-block; text-decoration: none;">
-                <img src="images/LZARC_logo.JPG" alt="LZARC (W0LZ)" style="height: 55px; width: auto; display: block; border: none; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));" />
+        <div class="logo-item">
+            <a href="https://lzarc.com" target="_blank">
+                <img src="images/LZARC_logo.JPG" alt="LZARC (W0LZ)" />
             </a>
         </div>
-
     </div>
 
     <!-- CLEAN COPYRIGHT FOOTER -->
-    <div style="text-align: center; font-size: 0.75rem; color: #64748b; margin-top: 20px; padding-bottom: 10px;">
+    <div class="footer-copyright">
         Thank you for visiting my QRZ page! &bull; 73, Will - W8MB
     </div>
 </div>
+
+</body>
+</html>
