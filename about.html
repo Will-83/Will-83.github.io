@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - W8MB</title>
+    
+    <!-- Google Fonts for Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #0b131f;
+            --bg-card: #111a2e;
+            --bg-accent: #0f172a;
+            --border-color: #1e293b;
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --color-blue: #38bdf8;
+            --color-gold: #fcd34d;
+            --color-gold-hover: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Navigation Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .logo-text {
+            color: var(--color-blue);
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Main Grid Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero-banner {
+                height: 180px;
+            }
+        }
+
+        /* Left Column Content */
+        .bio-content h1 {
+            color: var(--color-gold);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0px 1px 0px #b45309, 0px 2px 0px #92400e, 0px 0px 10px rgba(251,191,36,0.2);
+        }
+
+        .bio-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        /* Signature Block */
+        .signature-container {
+            margin-top: 30px;
+            padding-left: 10px;
+        }
+
+        .sig-valediction {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            line-height: 1.1;
+        }
+
+        .sig-name {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.8rem;
+            color: var(--text-primary);
+            padding-left: 40px;
+            line-height: 1.1;
+        }
+
+        /* Sidebar Cards */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .card h2 {
+            color: var(--color-blue);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #1d4ed8;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        /* Station List Styling */
+        .station-category {
+            margin-bottom: 15px;
+        }
+
+        .station-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .cat-title {
+            color: var(--color-blue);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .item-main {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .item-sub {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-top: 2px;
+        }
+
+        /* Interest List */
+        .interest-list {
+            list-style: none;
+        }
+
+        .interest-list li {
+            font-size: 0.9rem;
+            padding: 6px 0;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+        }
+
+        .interest-list li:last-child {
+            border-bottom: none;
+        }
+
+        .bullet-point {
+            color: var(--color-gold);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+
+        /* Feature Image Styling */
+        .feature-image-wrapper {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .feature-image-wrapper img {
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+        }
+
+        .image-caption {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+            line-height: 1.3;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        footer a {
+            color: var(--color-blue);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header Navigation -->
+        <header>
+            <a href="https://will-83.github.io/" class="logo-text">W8MB</a>
+            <nav class="nav-links">
+                <a href="https://will-83.github.io/">← Back to Main</a>
+            </nav>
+        </header>
+
+        <!-- Dynamic Hero Banner (Using your QRZ header image) -->
+        <div class="hero-banner">
+            <img src="https://www.qrz.com/hampages/w8mb/00000018ec722fa1a2da70050785e3_2.jpg" alt="W8MB Banner Background">
+        </div>
+
+        <!-- Main Layout Split -->
+        <div class="grid-layout">
+            
+            <!-- Left Bio Section -->
+            <main class="bio-content">
+                <h1>Hello from W8MB!</h1>
+                
+                <p>My name is William, though most people know me as Will.</p>
+
+                <p>My amateur radio journey began in 2020, but not because I was looking for a new hobby. I had become interested in off-roading and started watching videos about trail communications. Those videos introduced me to everything from GMRS and race radios to amateur radio. The more I learned, the more I realized amateur radio wasn't just another way to communicate—it was an opportunity to learn, build, experiment, and become part of a community.</p>
+
+                <p>I earned my Technician and General licenses during the same testing session in 2020.</p>
+
+                <p>Like many new operators, I quickly discovered that getting licensed was only the beginning. My very first radio was a Baofeng UV-5R. Living in rural Missouri, I could barely reach one local repeater and couldn't access the busiest one at all without walking out to the road in front of my house. Several repeaters listed online had long since gone quiet, and after a while I found myself drifting away from the hobby.</p>
+
+                <p>Fortunately, that wasn't the end of my story.</p>
+
+                <p>Over the next few years I introduced several friends and coworkers to amateur radio. Two of my coworkers and my fire chief all earned their licenses, and seeing their excitement brought back my own. One became fascinated with amateur satellites and working the ISS, another enjoys the emergency preparedness side of the hobby, and it has been rewarding to watch each of them discover their own interests. Looking back, I think helping others discover amateur radio has become just as enjoyable as operating myself.</p>
+
+                <p>That renewed enthusiasm led me to continue learning. In June 2026 I upgraded to Amateur Extra, and in July I became a Volunteer Examiner (VE). Being able to help welcome new operators into the hobby feels like a way of giving back to the community that helped me get started.</p>
+
+                <p>While I enjoy making contacts, what really keeps me interested is the technical side of amateur radio. I enjoy building, experimenting, troubleshooting, and figuring out why things work. One of the biggest lessons I've learned is that while a better radio certainly helps, a good antenna in the right location can completely transform a station. I've seen firsthand what replacing a rubber duck with a roll-up Slim Jim can do, and I've also learned that a properly built and tuned antenna often makes a bigger difference than simply buying another radio. Experiences like those are what keep me experimenting.</p>
+
+                <p>Today my primary HF radio is a Yaesu FT-857. After upgrading to Extra, I had been researching several affordable HF radios that would fit both my budget and the way I wanted to operate. When I found the FT-857 at the right price, it was an opportunity I couldn't pass up. It has turned out to be an excellent radio for both my home station and portable operation.</p>
+
+                <p>One of my favorite projects has been designing and building my own linked dipole covering the 40-, 20-, 15-, and 10-meter bands. Building it, tuning it with a NanoVNA, and seeing it perform on the air has been one of the most satisfying experiences I've had in amateur radio. I'm currently learning CW and always looking for another project to tackle.</p>
+
+                <p>One of my favorite operating memories so far was participating in Field Day from the top of a 100-foot fire watch tower. Setting up a portable station, relying on our own equipment, and making contacts from such a unique location perfectly captured what I enjoy most about amateur radio.</p>
+
+                <p>Outside of the hobby, I work as an EMT in Douglas County, Missouri, and volunteer with the Mansfield Fire Department. Amateur radio actually came first, but the knowledge I've gained has proven valuable in emergency services. Today I help maintain and program many of the radios used by our department, giving me an even greater appreciation for reliable communications and the equipment behind them.</p>
+
+                <p>When I'm not on the air, you'll usually find me working on one of my many other hobbies. I enjoy locksport, hiking, camping, fishing, hunting, 3D printing, and just about anything that involves learning a new skill or building something with my own hands.</p>
+
+                <div class="signature-container">
+                    <div class="sig-valediction">73,</div>
+                    <div class="sig-name">Will</div>
+                </div>
+            </main>
+
+            <!-- Right Sidebar Column -->
+            <aside class="sidebar">
+                
+                <!-- Watchtower Image Feature Card -->
+                <div class="card">
+                    <h2>Featured Memory</h2>
+                    <div class="feature-image-wrapper">
+                        <img src="https://www.qrz.com/hampages/w8mb/FB_IMG_1783736399705.jpg" alt="Operating Field Day from Watchtower">
+                        <div class="image-caption">ARRL Field Day 2026<br>Operating portable from a 100' Missouri watchtower</div>
+                    </div>
+                </div>
+
+                <!-- Current Station Card -->
+                <div class="card">
+                    <h2>Current Station</h2>
+                    
+                    <div class="station-category">
+                        <div class="cat-title">HF</div>
+                        <div class="item-main">Yaesu FT-857</div>
+                        <div class="item-sub">Homebrew linked dipole (40m-10m)</div>
+                    </div>
+
+                    <div class="station-category">
+                        <div class="cat-title">VHF / UHF</div>
+                        <div class="item-main">TYT TH-9800</div>
+                        <div class="item-sub">N9TAX roll-up Slim Jim antenna</div>
+                    </div>
+
+                    <div class="station-category">
+                        <div class="cat-title">Digital Voice</div>
+                        <div class="item-main">DMR / YSF / NXDN</div>
+                        <div class="item-sub">Baofeng DM-32, Kenwood NX-220, Dual-slot MMDVM hotspot</div>
+                    </div>
+
+                    <div class="station-category">
+                        <div class="cat-title">Handhelds</div>
+                        <div class="item-main">Baofeng UV-5R</div>
+                        <div class="item-sub">The original rig & reliable backup</div>
+                        <div style="margin-top: 6px;" class="item-main">Baofeng UV-5R Mini</div>
+                        <div class="item-sub">Everyday carry</div>
+                    </div>
+                </div>
+
+                <!-- Current Interests Card -->
+                <div class="card">
+                    <h2>Current Interests</h2>
+                    <ul class="interest-list">
+                        <li><span class="bullet-point">»</span> Learning CW</li>
+                        <li><span class="bullet-point">»</span> Portable HF and POTA</li>
+                        <li><span class="bullet-point">»</span> Building & experimenting with antennas</li>
+                        <li><span class="bullet-point">»</span> Radio programming & department communications</li>
+                        <li><span class="bullet-point">»</span> Learning something new every chance I get</li>
+                    </ul>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Will - W8MB. Hosted on <a href="https://will-83.github.io/" target="_blank">GitHub Pages</a>.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
