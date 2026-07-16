@@ -6,7 +6,7 @@
     <title>Ham Status Updater</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: Arial, sans-serif;
             background-color: #0b131f;
             color: #e2e8f0;
             display: flex;
@@ -14,26 +14,246 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
         }
         .card {
             background-color: #111a2e;
-            padding: 30px;
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            width: 100%;
-            max-width: 400px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            width: 300px;
             border: 1px solid #1e293b;
         }
-        h2 { margin-top: 0; color: #38bdf8; text-align: center; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
-        label { display: block; margin: 15px 0 5px; font-weight: bold; font-size: 0.9rem; color: #94a3b8; }
+        h2 { margin-top: 0; color: #38bdf8; text-align: center; }
+        label { display: block; margin: 10px 0 5px; font-weight: bold; color: #94a3b8; }
         select, input, button {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             margin-bottom: 10px;
-            border-radius: 6px;
+            border-radius: 4px;
             border: 1px solid #1e293b;
+            background-color: #1e293b;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #1d4ed8;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background-color: #2563eb; }
+        #status-msg { text-align: center; margin-top: 10px; font-weight: bold; }
+        .hidden { display: none; }
+        canvas { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>📡 Status Updater</h2>
+    
+    <label for="github-token">GitHub Personal Access Token</label>
+    <input type="password" id="github-token" placeholder="Paste token here...">
+    <button id="save-token-btn" onclick="saveToken()">Save Token</button>
+
+    <div id="controls-section" class="hidden">
+        <label for="status">Status</label>
+        <select id="status" onchange="toggleInputs()">
+            <option value="ON THE AIR">🟢 ON THE AIR</option>
+            <option value="MONITORING">🟡 MONITORING</option>
+            <option value="BUSY">🔴 BUSY</option>
+            <option value="OFF AIR">⚫ OFF AIR</option>
+        </select>
+
+        <div id="dynamic-fields">
+            <label for="mode">Mode</label>
+            <select id="mode">
+                <option value="DMR">DMR</option>
+                <option value="YSF">YSF</option>
+                <option value="HF">HF</option>
+                <option value="FM">FM</option>
+                <option value="FT8">FT8</option>
+                <option value="CW">CW</option>
+            </select>
+
+            <label for="details">Talkgroup / Frequency</label>
+            <input type="text" id="details" placeholder="e.g., 31259 or 14.300">
+        </div>
+
+        <button onclick="generateAndUpload()">Update Status Image</button>
+    </div>
+
+    <div id="status-msg"></div>
+</div>
+
+<canvas id="statusCanvas" width="240"></canvas>
+
+<script>
+    const REPO = "Will-83/Will-83.github.io";
+    const FILE_PATH = "status.png";
+
+    window.onload = function() {
+        const savedToken = localStorage.getItem('gh_status_token');
+        if (savedToken) {
+            document.getElementById('github-token').value = savedToken;
+            document.getElementById('controls-section').classList.remove('hidden');
+            document.getElementById('save-token-btn').innerText = "Update Saved Token";
+        }
+    }
+
+    function saveToken() {
+        const token = document.getElementById('github-token').value.trim();
+        if (token) {
+            localStorage.setItem('gh_status_token', token);
+            document.getElementById('controls-section').classList.remove('hidden');
+            document.getElementById('save-token-btn').innerText = "Update Saved Token";
+            showMsg("Token saved securely!", "#38bdf8");
+        }
+    }
+
+    function toggleInputs() {
+        const status = document.getElementById('status').value;
+        const dynamicFields = document.getElementById('dynamic-fields');
+        if (status === "OFF AIR") {
+            dynamicFields.style.display = "none";
+        } else {
+            dynamicFields.style.display = "block";
+        }
+    }
+
+    function showMsg(text, color) {
+        const msgDiv = document.getElementById('status-msg');
+        msgDiv.innerText = text;
+        msgDiv.style.color = color;
+    }
+
+    async function generateAndUpload() {
+        const token = localStorage.getItem('gh_status_token');
+        if (!token) return showMsg("Missing GitHub Token!", "red");
+
+        showMsg("Generating image...", "#e0e0e0");
+
+        const status = document.getElementById('status').value;
+        const mode = document.getElementById('mode').value;
+        const details = document.getElementById('details').value.trim();
+
+        const canvas = document.getElementById('statusCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = 240;
+        let calculatedHeight = 65;
+        if (status !== "OFF AIR") {
+            calculatedHeight += 30;
+            if (details) calculatedHeight += 25;
+        }
+        canvas.height = calculatedHeight;
+
+        ctx.fillStyle = "#111a2e";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        let dotColor = "#94a3b8";
+        if (status === "ON THE AIR") dotColor = "#22c55e";
+        if (status === "MONITORING") dotColor = "#eab308";
+        if (status === "BUSY") dotColor = "#ef4444";
+
+        ctx.beginPath();
+        ctx.arc(15, 22, 6, 0, 2 * Math.PI);
+        ctx.fillStyle = dotColor;
+        ctx.fill();
+
+        ctx.font = "bold 14px sans-serif";
+        ctx.fillStyle = "#ffffff";
+        ctx.fillText(status, 32, 27);
+
+        let currentY = 52;
+
+        if (status !== "OFF AIR") {
+            ctx.font = "13px sans-serif";
+            ctx.fillStyle = "#94a3b8";
+            ctx.fillText("Mode", 8, currentY);
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 13px sans-serif";
+            ctx.fillText(mode, 65, currentY);
+            currentY += 25;
+
+            if (details) {
+                ctx.font = "13px sans-serif";
+                ctx.fillStyle = "#94a3b8";
+                ctx.fillText("Details", 8, currentY);
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "12px sans-serif";
+                
+                let printDetails = details;
+                if (ctx.measureText(printDetails).width > 165) {
+                    while (ctx.measureText(printDetails + "...").width > 165 && printDetails.length > 0) {
+                        printDetails = printDetails.slice(0, -1);
+                    }
+                    printDetails += "...";
+                }
+                ctx.fillText(printDetails, 65, currentY);
+                currentY += 25;
+            }
+        } else {
+            ctx.font = "italic 12px sans-serif";
+            ctx.fillStyle = "#64748b";
+            ctx.fillText("No active operating status", 8, currentY);
+            currentY += 25;
+        }
+
+        const now = new Date();
+        const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) + " " + now.toLocaleDateString([], {month:'short', day:'numeric'});
+        ctx.font = "italic 10px sans-serif";
+        ctx.fillStyle = "#475569";
+        ctx.fillText("Updated: " + timeString, 8, canvas.height - 10);
+
+        canvas.toBlob(async function(blob) {
+            const reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onloadend = async function() {
+                const base64Data = reader.result.split(',')[1];
+                showMsg("Updating GitHub...", "#e0e0e0");
+                
+                let sha = "";
+                const url = `https://api.github.com/repos/${REPO}/contents/${FILE_PATH}`;
+                
+                try {
+                    const getRes = await fetch(url, { headers: { "Authorization": `token ${token}` } });
+                    if (getRes.status === 200) {
+                        const data = await getRes.json();
+                        sha = data.sha;
+                    }
+
+                    const putBody = {
+                        message: "Status Update (Clean HTML Revert)",
+                        content: base64Data,
+                        branch: "main"
+                    };
+                    if (sha) putBody.sha = sha;
+
+                    const putRes = await fetch(url, {
+                        method: "PUT",
+                        headers: { "Authorization": `token ${token}`, "Content-Type": "application/json" },
+                        body: JSON.stringify(putBody)
+                    });
+
+                    if (putRes.status === 200 || putRes.status === 201) {
+                        showMsg("Success! Status image updated live.", "#22c55e");
+                    } else {
+                        const errData = await putRes.json();
+                        showMsg("Upload Error: " + errData.message, "red");
+                    }
+                } catch (err) {
+                    showMsg("Network error trying to contact GitHub.", "red");
+                }
+            };
+        }, 'image/png');
+    }
+</script>
+
+</body>
+</html>
             background-color: #1e293b;
             color: #fff;
             font-size: 1rem;
