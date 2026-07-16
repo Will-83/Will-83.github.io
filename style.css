@@ -1,100 +1,494 @@
-/* style.css */
-:root {
-    --bg-color: #0f172a;
-    --text-color: #f8fafc;
-    --accent-color: #38bdf8;
-    --card-bg: #1e293b;
-    --border-color: #334155;
-}
-
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    line-height: 1.6;
+    background-color: #0b131f;
+    color: #e2e8f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
-.container {
+.main-wrapper {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 20px;
+/* ==========================================================================
+   HEADER BANNER
+   ========================================================================== */
+.header-banner {
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-h1 {
-    color: var(--accent-color);
-    margin-bottom: 10px;
-}
-
-/* Project Step Row */
-.project-step {
-    display: flex;
-    gap: 30px;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 24px;
-    margin-bottom: 30px;
-    align-items: center;
-}
-
-.step-image {
-    flex: 1;
-    min-width: 300px;
-}
-
-.step-image img {
+.header-banner img {
     width: 100%;
     height: auto;
     border-radius: 6px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #1e293b;
     display: block;
 }
 
-.step-text {
-    flex: 1.2;
+/* ==========================================================================
+   LAYOUT STRUCTURE (Using Presentation Tables for Robust Compatibility)
+   ========================================================================== */
+.layout-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 
-.step-number {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    font-weight: bold;
-    padding: 2px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
+.sidebar-col {
+    width: 280px;
+    vertical-align: top;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.main-col {
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+/* ==========================================================================
+   COMMON CARDS & TITLES
+   ========================================================================== */
+.card {
+    background-color: #111a2e;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.padding-lg {
+    padding: 20px;
+}
+
+.section-title {
+    color: #38bdf8;
+    margin-top: 0;
+    border-bottom: 2px solid #1d4ed8;
+    padding-bottom: 6px;
+    font-size: 1rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
 }
 
-.step-text h2 {
+.section-heading {
+    color: #38bdf8;
     margin-top: 0;
-    color: var(--accent-color);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
 }
 
-.step-text ul {
-    padding-left: 20px;
+/* Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.height-full { height: 100%; }
+
+/* ==========================================================================
+   SIDEBAR COMPONENTS
+   ========================================================================== */
+/* Row layouts */
+.sidebar-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.sidebar-row strong {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.sidebar-row span {
+    color: #94a3b8;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+}
+
+/* On the Air Image */
+.status-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Quick Links Button */
+.btn {
+    display: block;
+    background-color: #1e293b;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid #334155;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #334155;
+}
+
+/* Propagation */
+.prop-link {
+    display: block;
+    margin: 0 auto;
+}
+
+.prop-img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: none;
+    display: block;
+}
+
+/* Find Me */
+.email-text {
+    color: #38bdf8;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.social-row {
+    align-items: center;
     margin-bottom: 0;
 }
 
-.step-text li {
-    margin-bottom: 8px;
+.social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
 }
 
-/* Responsive design for mobile screens */
-@media (max-width: 768px) {
-    .project-step {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .step-image {
-        min-width: 100%;
-    }
+.social-icons a {
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    /* Custom blue SVG tint styling matching theme color */
+    filter: invert(74%) sepia(35%) saturate(1973%) hue-rotate(178deg) brightness(101%) contrast(98%);
+    transition: opacity 0.2s ease;
+}
+
+.social-icon:hover {
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   MAIN PANEL - HELLO / BIO CARD
+   ========================================================================== */
+.hello-header {
+    color: #fcd34d;
+    font-family: inherit;
+    margin-top: 0;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 0px 1px 0px #b45309, 
+                 0px 2px 0px #92400e, 
+                 0px 3px 1px rgba(0,0,0,0.5), 
+                 0px 0px 5px rgba(251,191,36,0.6), 
+                 0px 0px 15px rgba(251,191,36,0.3);
+}
+
+.inner-layout-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.bio-text-cell {
+    vertical-align: top;
+    padding-right: 20px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.bio-img-cell {
+    width: 250px;
+    vertical-align: top;
+    text-align: center;
+}
+
+.bio-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.img-caption {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 8px;
+    line-height: 1.3;
+}
+
+/* Station Journey Link */
+.station-journey-link {
+    margin: 15px 0;
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.station-journey-link a {
+    color: #38bdf8;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.station-journey-link a:hover {
+    color: #60a5fa;
+}
+
+/* Handwritten Signature block */
+.signature {
+    display: block;
+    margin-top: 15px;
+    padding-left: 10px;
+    line-height: 1.0;
+}
+
+.sig-73 {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.4rem;
+    color: #ffffff;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.sig-name {
+    font-family: 'Alex Brush', cursive;
+    font-size: 2.4rem;
+    color: #ffffff;
+    font-weight: normal;
+    font-style: normal;
+    padding-left: 35px;
+}
+
+/* ==========================================================================
+   MAIN PANEL - STATION SECTORS (4-COL GRID)
+   ========================================================================== */
+.station-grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.grid-cell {
+    width: 25%;
+    padding: 6px;
+    vertical-align: top;
+}
+
+.grid-card {
+    background-color: #0f172a;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #1e293b;
+    height: 120px; /* Slight buffer to prevent overflow */
+}
+
+.grid-tag {
+    color: #38bdf8;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.grid-title {
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.grid-desc {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 2px;
+}
+
+.spacing-top {
+    margin-top: 8px;
+}
+
+/* ==========================================================================
+   MAIN PANEL - LATEST PROJECTS (3-COL GRID)
+   ========================================================================== */
+.projects-grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.project-cell {
+    width: 33.3%;
+    padding: 6px;
+    vertical-align: top;
+}
+
+.project-card {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 220px;
+}
+
+.project-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-card-body {
+    padding: 10px;
+}
+
+.project-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.project-desc {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   MAIN PANEL - TIMELINE & OFF THE AIR (SPLIT TABLE)
+   ========================================================================== */
+.split-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.split-cell {
+    width: 50%;
+    vertical-align: top;
+}
+
+.padding-right { padding-right: 10px; }
+.padding-left { padding-left: 10px; }
+
+/* Timeline block */
+.timeline {
+    position: relative;
+    padding-left: 15px;
+    border-left: 2px solid #1e293b;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.timeline-item.no-margin {
+    margin-bottom: 0;
+}
+
+.timeline-year {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+.timeline-desc {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+/* Interests bullet list override */
+.interests-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.interests-list li {
+    font-size: 0.85rem;
+    padding: 5px 0;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+}
+
+.interests-list li span {
+    color: #f59e0b;
+    margin-right: 8px;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   FOOTER SECTIONS
+   ========================================================================== */
+.footer-affiliations {
+    background-color: #111a2e;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.logo-item {
+    margin: 10px;
+    min-width: 150px;
+}
+
+.logo-item a {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.logo-item img {
+    height: 55px;
+    width: auto;
+    display: block;
+    border: none;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 20px;
+    padding-bottom: 10px;
 }
