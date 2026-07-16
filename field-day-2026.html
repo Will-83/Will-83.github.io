@@ -3,265 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3 EMS | Field Day 2026 - The Fire Tower QTH</title>
-    <style>
-        :root {
-            --primary-bg: #1a1a1a;
-            --secondary-bg: #2d2d2d;
-            --accent: #00bcd4; /* Cyan accent for visibility */
-            --text: #e0e0e0;
-            --shadow: rgba(0,0,0,0.5);
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--primary-bg);
-            color: var(--text);
-        }
-        .wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            padding: 40px 0;
-            background: var(--secondary-bg);
-            border-bottom: 2px solid var(--accent);
-            box-shadow: 0 4px 10px var(--shadow);
-            margin-bottom: 30px;
-        }
-        h1 { margin: 0; color: var(--accent); font-size: 2.5em; }
-        .subtitle { font-style: italic; color: #aaa; margin-top: 5px; }
-
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .summary-box {
-            background: var(--secondary-bg);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px var(--shadow);
-        }
-
-        /* Photo Log/Story Layout */
-        .photo-entry {
-            display: grid;
-            grid-template-columns: 1fr;
-            background: var(--secondary-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px var(--shadow);
-            transition: transform 0.2s ease-in-out;
-        }
-        
-        .photo-entry:hover { transform: translateY(-3px); }
-
-        .photo-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .photo-caption {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .photo-caption h3 { color: var(--accent); margin-top: 0; }
-        .photo-caption p { margin-bottom: 0; }
-
-        /* Media Queries for Desktop - Side-by-Side */
-        @media (min-width: 768px) {
-            .photo-entry {
-                grid-template-columns: 2fr 1fr; /* Image takes 2/3, text 1/3 */
-            }
-            /* Alternate which side the image/text is on for flow */
-            .photo-entry:nth-child(even) .photo-container { grid-column: 2; }
-            .photo-entry:nth-child(even) .photo-caption { grid-column: 1; grid-row: 1; text-align: right; }
-        }
-
-        nav.footer-nav {
-            text-align: center;
-            margin: 50px 0;
-            padding: 20px;
-            border-top: 1px solid #444;
-        }
-        .back-link {
-            display: inline-block;
-            background-color: var(--accent);
-            color: #111;
-            padding: 10px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
-        .back-link:hover { background-color: #fff; }
-    </style>
+    <title>3 EMS | Field Day 2026 - W8MB</title>
+    <!-- Link to your shared external stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-    <div class="wrapper">
-        <h1>3 EMS | Field Day 2026</h1>
-        <p class="subtitle">Operating 100 Watts from a Fire Tower</p>
-    </div>
-</header>
+<div class="main-wrapper">
+    
+    <!-- NAVIGATION HEADER -->
+    <table role="presentation" class="layout-table" style="margin-bottom: 20px;">
+        <tr>
+            <td style="vertical-align: middle;">
+                <a href="index.html" class="logo-text" style="color: #38bdf8; font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; text-decoration: none;">W8MB</a>
+            </td>
+            <td style="text-align: right; vertical-align: middle;">
+                <a href="index.html" style="color: #94a3b8; text-decoration: none; font-weight: 500; font-size: 0.95rem;">← Back to Main</a>
+            </td>
+        </tr>
+    </table>
 
-<div class="wrapper main-content">
-
-    <div class="summary-box">
-        <p><strong>Field Day Summary:</strong> Our crew decided that "temporary QTH" meant "vertical QTH." We deployed to a decommissioned Missouri Fire Tower, hauling gear up 100 feet of stairs. The goal was simple: test our emergency setup, run on 100% off-grid power, and take advantage of the tower’s natural height for VHF and HF antenna support. Despite the cramped quarters in the cab, we made several contacts and had an unforgettable day.</p>
-    </div>
-
-    <!-- START OF PHOTO LOG -->
-
-    <!-- Photo 1: Arrival -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/the-tower.jpg" alt="Mansfield Fire Tower looming against a blue sky">
-        </div>
-        <div class="photo-caption">
-            <h3>Arrival & Assessment</h3>
-            <p>Our home for a few hours. The structure is solid, but that cab gets smaller every time you look up. Weather was great.</p>
+    <!-- HERO BANNER -->
+    <div class="header-banner">
+        <img src="images/field_day2026/view-1.jpg" alt="100-Foot Lookout View of Missouri Forest">
+        <div class="banner-overlay" style="position: absolute; bottom: 20px; left: 20px; z-index: 2;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);">Field Day 2026</h1>
+            <p style="color: #38bdf8; margin: 5px 0 0 0; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.8);">Operating 100 Watts from the Fire Tower QTH</p>
         </div>
     </div>
 
-    <!-- Photo 2: View from Inside -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/view-1.jpg" alt="Overlooking dense forest from the tower windows">
-        </div>
-        <div class="photo-caption">
-            <h3>100-Foot Takeoff</h3>
-            <p>The view from the top is breathtaking. Overlooking nothing but dense Missouri forest. This natural elevation gave us a fantastic advantage.</p>
-        </div>
+    <!-- MAIN BODY LAYOUT -->
+    <table role="presentation" class="layout-table">
+        <tr>
+            <!-- LEFT SIDEBAR (Quick Stats) -->
+            <td class="sidebar-col">
+                
+                <!-- FIELD DAY QUICK STATS -->
+                <div class="card">
+                    <h3 class="section-title">Activation Stats</h3>
+                    
+                    <div class="sidebar-row" style="display: block; margin-bottom: 12px;">
+                        <div class="grid-tag" style="font-size: 0.75rem; color: #38bdf8; font-weight: bold; text-transform: uppercase;">Class</div>
+                        <div style="color: #ffffff; font-weight: 600; font-size: 0.9rem;">3E (Douglas County)</div>
+                    </div>
+
+                    <div class="sidebar-row" style="display: block; margin-bottom: 12px;">
+                        <div class="grid-tag" style="font-size: 0.75rem; color: #38bdf8; font-weight: bold; text-transform: uppercase;">Power</div>
+                        <div style="color: #ffffff; font-weight: 600; font-size: 0.9rem;">100W (Battery/Solar)</div>
+                        <div style="color: #94a3b8; font-size: 0.75rem;">Parallel LiFePO4 bank</div>
+                    </div>
+
+                    <div class="sidebar-row" style="display: block; margin-bottom: 12px;">
+                        <div class="grid-tag" style="font-size: 0.75rem; color: #38bdf8; font-weight: bold; text-transform: uppercase;">HF Rig</div>
+                        <div style="color: #ffffff; font-weight: 600; font-size: 0.9rem;">Yaesu FT-857</div>
+                        <div style="color: #94a3b8; font-size: 0.75rem;">SSB Voice workhorse</div>
+                    </div>
+
+                    <div class="sidebar-row" style="display: block; margin-bottom: 0;">
+                        <div class="grid-tag" style="font-size: 0.75rem; color: #38bdf8; font-weight: bold; text-transform: uppercase;">Mesh Tech</div>
+                        <div style="color: #ffffff; font-weight: 600; font-size: 0.9rem;">Wio L1 MESH</div>
+                        <div style="color: #94a3b8; font-size: 0.75rem;">Log syncing & local net</div>
+                    </div>
+                </div>
+
+                <!-- TOWER TRIVIA -->
+                <div class="card">
+                    <h3 class="section-title">The Location</h3>
+                    <p style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.5; margin: 8px 0 0 0;">
+                        An elevated, decommissioned Missouri fire lookout. Hauling gear, cables, and heavy lithium batteries up 100 feet of narrow iron stairs is the ultimate test of portable station engineering.
+                    </p>
+                </div>
+
+            </td>
+
+            <!-- RIGHT MAIN CONTENT (Photo Log Story) -->
+            <td class="main-col">
+                
+                <!-- SUMMARY CARD -->
+                <div class="card padding-lg" style="line-height: 1.6; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 25px;">
+                    <p style="margin: 0;">
+                        <strong>Field Day Summary:</strong> Our crew decided that "temporary QTH" meant "vertical QTH." We deployed to a decommissioned fire tower, hauling gear up 100 feet of stairs. The goal was simple: test our emergency setup, run on 100% off-grid power, and take advantage of the tower’s natural height for VHF and HF antenna support. Despite the cramped quarters in the metal cab, we made several rewarding contacts and had an unforgettable day.
+                    </p>
+                </div>
+
+                <!-- PHOTO LOG CARDS -->
+
+                <!-- Card 1: Arrival -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Arrival & Assessment</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/the-tower.jpg" alt="Mansfield Fire Tower looming against a blue sky" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Our home for the operation. The steel structure is rock solid, but that cab gets smaller and higher every single time you look up from the ground. Weather was on our side!
+                    </p>
+                </div>
+
+                <!-- Card 2: View from Inside -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">100-Foot Takeoff</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/view-1.jpg" alt="Overlooking dense forest from the tower windows" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        The view from the top is breathtaking, overlooking dense, rolling Missouri forest for miles. This natural elevation gave us a fantastic takeoff angle and a massive RF advantage.
+                    </p>
+                </div>
+
+                <!-- Card 3: Operations Begin -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Operations Commenced</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/operations.jpg" alt="Adjusting a radio dial in a crowded radio room" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Setting up the primary station within the small dimensions of the tower cab. Maximizing limited workspace with efficient gear placement is half the battle.
+                    </p>
+                </div>
+
+                <!-- Card 4: 20M Setup -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">The 20M Workhorse</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/20m-ft857.jpg" alt="A Yaesu FT-857 radio displaying a frequency of 14.337 MHz" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Our main station setup centered on the rugged Yaesu FT-857. Here we are, dialed in and running strong on 20 meters SSB (14.337 MHz).
+                    </p>
+                </div>
+
+                <!-- Card 5: Mobile VHF -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">VHF/UHF Operations</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/mobile-vhf.jpg" alt="Trey using a handheld radio with a log book nearby" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Trey manning the 2M/70cm station. The tower’s extreme height made hitting distant repeaters and simplex contacts trivial, even with modest handheld setups. We even managed to snare one highly memorable contact via a high-altitude balloon repeater over Texas!
+                    </p>
+                </div>
+
+                <!-- Card 6: Logging and MESH -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">The Nerve Center</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/logging.jpg" alt="The central desk showing multiple radios, cables, and logbooks" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        A closer look at our operating position desk. We deployed a Wio L1 MESH node to synchronize our logging and monitor network status off-grid. A healthy mess of cables is mandatory protocol for any real Field Day station!
+                    </p>
+                </div>
+
+                <!-- Card 7: View 2 -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Another View</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/view-2.jpg" alt="The view from a different window looking toward open fields under a gloomy sky" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Watching a front move in on the horizon. From this height, you can truly see for miles.
+                    </p>
+                </div>
+
+                <!-- Card 8: View 3 -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Scanning the Horizon</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/view-3.jpg" alt="Another scenic view from the cab window" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Another look out the alternate windows. The tower's 100-foot elevation gave us a commanding 360-degree line of sight in every direction.
+                    </p>
+                </div>
+
+                <!-- Card 9: Looking Down -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Perspective</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/far-down.jpg" alt="Looking steeply downward past the tower stairs to the ground far below" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Looking straight down past the framework stairs toward our support vehicle. It served as a constant, stark reminder of why we triple-tied and anchored every single connector, handset, and hand tool!
+                    </p>
+                </div>
+
+                <!-- Card 10: Power Solutions -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Off-Grid Power Mess</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/the-mess.jpg" alt="Several large orange and black lithium iron phosphate batteries sitting on a shelf with tangled wires" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        We operated 100% on clean LiFePO4 battery power. While the parallel bus wiring layout is a bit chaotic to look at, it provided completely silent, ultra-steady current without voltage sag all weekend. Note the blue wire strippers on standby—always prepared!
+                    </p>
+                </div>
+
+                <!-- Card 11: Trey on HF -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Trey on HF</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/trey-on-hf.jpg" alt="Trey focused on operating in dim lighting" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Trey hunting contacts on the HF SSB bands. Let's just say we quickly realized how much we wished we had brought dual-ear noise-isolating headphones to block out local noise in that cozy metal cab!
+                    </p>
+                </div>
+
+                <!-- Card 12: Will on HF -->
+                <div class="card padding-lg" style="margin-bottom: 25px;">
+                    <h3 style="color: #38bdf8; font-size: 1.2rem; margin-top: 0; margin-bottom: 12px;">Will at the Station</h3>
+                    <div style="margin-bottom: 15px; border-radius: 4px; overflow: hidden; background: #0f172a;">
+                        <img src="images/field_day2026/will-on-hf-clean.jpg" alt="Will operating the HF station" style="width: 100%; height: auto; display: block;">
+                    </div>
+                    <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin: 0;">
+                        Taking my turn at the microphone. Operating completely off-grid from an iconic, historic fire tower makes every single logged exchange feel incredibly satisfying.
+                    </p>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- CLEAN COPYRIGHT FOOTER -->
+    <div class="footer-copyright" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
+        &copy; 2026 Will - W8MB. Hosted on <a href="https://will-83.github.io/" target="_blank" style="color: #38bdf8; text-decoration: none;">GitHub Pages</a>.
     </div>
-
-    <!-- Photo 3: Operations Begin -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/operations.jpg" alt="Adjusting a radio dial in a crowded radio room">
-        </div>
-        <div class="photo-caption">
-            <h3>Operations Commenced</h3>
-            <p>Setting up the primary station in the cab.</p>
-        </div>
-    </div>
-
-    <!-- Photo 4: 20M Setup -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/20m-ft857.jpg" alt="A Yaesu FT-857 radio displaying a frequency of 14.337 MHz">
-        </div>
-        <div class="photo-caption">
-            <h3>The 20M Workhorse</h3>
-            <p>Our main station setup centered on the Yaesu FT-857. Here we are, dialed in on 20 meters SSB (14.337 MHz).</p>
-        </div>
-    </div>
-
-    <!-- Photo 5: Mobile VHF -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/mobile-vhf.jpg" alt="Trey using a handheld radio with a log book nearby">
-        </div>
-        <div class="photo-caption">
-            <h3>VHF/UHF Operations</h3>
-            <p>Trey manning the 2M/70cm station. The tower’s height made hitting distant repeaters and simplex contacts simple, even with modest handheld setups. Made one contact via baloon repeater in TX.</p>
-        </div>
-    </div>
-
-    <!-- Photo 6: Logging and MESH -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/logging.jpg" alt="The central desk showing multiple radios, cables, and logbooks">
-        </div>
-        <div class="photo-caption">
-            <h3>The Nerve Center</h3>
-            <p>A closer look at the operating position. We deployed an Wio L1 MESH node for logging synchronization and network status. The cable mess is mandatory for Field Day!</p>
-        </div>
-    </div>
-
-    <!-- Photo 7: View 2 -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/view-2.jpg" alt="The view from a different window looking toward open fields under a gloomy sky">
-        </div>
-        <div class="photo-caption">
-            <h3>Another View</h3>
-            <p>Can see for miles up here.</p>
-        </div>
-    </div>
-
-    <!-- Photo 8: View 3 -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/view-3.jpg" alt="Another scenic view from the cab window">
-        </div>
-        <div class="photo-caption">
-            <h3>Scanning the Horizon</h3>
-            <p>Another look out the cab windows. The height of this tower gave us a commanding view in every direction.</p>
-        </div>
-    </div>
-
-    <!-- Photo 9: Looking Down -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/far-down.jpg" alt="Looking steeply downward past the tower stairs to the ground far below">
-        </div>
-        <div class="photo-caption">
-            <h3>Perspective</h3>
-            <p>Looking straight down past the stairs toward the support vehicle. A stark reminder of why we anchored everything, especially our tools.</p>
-        </div>
-    </div>
-
-    <!-- Photo 10: Power Solutions -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/the-mess.jpg" alt="Several large orange and black lithium iron phosphate batteries sitting on a shelf with tangled wires">
-        </div>
-        <div class="photo-caption">
-            <h3>Off-Grid Power Mess</h3>
-            <p>We ran entirely on LiFePO4 battery power. This setup—multiple banks wired in parallel—is a bit chaotic, but it gave us silent, reliable energy the entire weekend. Note the blue wire strippers, always necessary!</p>
-        </div>
-    </div>
-
-    <!-- Photo 11: Trey on HF -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/trey-on-hf.jpg" alt="Trey focused on operating in dim lighting">
-        </div>
-        <div class="photo-caption">
-            <h3>Trey On HF</h3>
-            <p>Trey working the HF on SSB. Wish we had headphones in that small metal box!</p>
-        </div>
-    </div>
-
-    <!-- Photo 12: Will on HF -->
-    <div class="photo-entry">
-        <div class="photo-container">
-            <img src="images/field_day2026/will-on-hf-clean.jpg" alt="Will operating the HF station">
-        </div>
-        <div class="photo-caption">
-            <h3>Will at the Station</h3>
-            <p>Taking a turn at the HF rig. Running off-grid from a historic fire tower makes every single logged contact feel incredibly rewarding.</p>
-        </div>
-    </div>
-
-    <!-- END OF PHOTO LOG -->
-
-    <nav class="footer-nav">
-        <a href="index.html" class="back-link">&larr; Return to W8MB Home</a>
-    </nav>
-
 </div>
 
 </body>
