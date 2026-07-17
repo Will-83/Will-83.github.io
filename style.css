@@ -501,38 +501,48 @@ body {
     opacity: 0.9;
 }
 
-/* =======================================================
-   Mobile Slide-Out Drawer Menu
-========================================================== */
-
-/* 1. Hide the mobile menu button by default on desktop */
+/* ==========================================================================
+   MOBILE MENU TOGGLE BUTTON (Desktop Hidden Setup)
+   ========================================================================== */
 .mobile-menu-btn {
-    display: none;
-    background: #1e293b;
-    color: #38bdf8;
-    border: 1px solid #334155;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    margin-left: 15px;
-    vertical-align: middle;
+    display: none; /* Hidden by default on desktop */
 }
 
-.mobile-menu-btn:hover {
-    background: #334155;
-}
-
-/* 2. Mobile Rules (Screens smaller than 768px) */
+/* ==========================================================================
+   RESPONSIVE DESIGN (Screens smaller than 768px)
+   ========================================================================== */
 @media screen and (max-width: 768px) {
     
-    /* Show the toggle button on mobile */
-    .mobile-menu-btn {
-        display: inline-block;
+    /* Ensure the main wrapper establishes a relative positioning context for the button */
+    .main-wrapper {
+        position: relative;
+        padding: 15px;
     }
 
-    /* Convert the layout table rows/cells to blocks so they don't fight the layout */
+    /* Floating toggle button styles for mobile view */
+    .mobile-menu-btn {
+        display: block !important;
+        position: absolute;
+        top: 25px; /* Floats inside top padding of .main-wrapper */
+        right: 25px;
+        z-index: 10000; /* Stays above absolutely everything */
+        background: #1e293b;
+        color: #38bdf8;
+        border: 1px solid #334155;
+        padding: 8px 14px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+        transition: background-color 0.2s ease;
+    }
+
+    .mobile-menu-btn:hover {
+        background: #334155;
+    }
+
+    /* Main layout elements stack vertically */
     .layout-table, 
     .layout-table tbody, 
     .layout-table tr {
@@ -540,32 +550,60 @@ body {
         width: 100% !important;
     }
 
-    /* Transform the sidebar into a fixed, off-screen drawer */
+    /* Transform the sidebar into a smooth, sliding off-screen drawer */
     .sidebar-col {
         display: block !important;
         position: fixed !important;
         top: 0;
-        left: -290px; /* Hidden off-screen to the left */
+        left: -290px; /* Hidden off-screen left */
         width: 280px !important;
         height: 100%;
-        background: #0f172a; /* Dark background matching your site */
-        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        background: #0f172a;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.6);
         z-index: 9999;
-        overflow-y: auto; /* Scrollable if your widgets are tall */
+        overflow-y: auto; /* Scrollable drawer for long widgets */
         padding: 20px !important;
-        transition: left 0.3s ease-in-out; /* Smooth slide animation */
+        transition: left 0.3s ease-in-out;
         box-sizing: border-box;
     }
 
-    /* When the active class is added by JS, slide it into view */
+    /* Triggered by JS to slide drawer in */
     .sidebar-col.drawer-open {
         left: 0 !important;
     }
 
-    /* Ensure the main content takes up 100% width on mobile */
+    /* Force the main column to fill the layout */
     .main-col {
         display: block !important;
         width: 100% !important;
         padding: 0 !important;
+    }
+
+    /* Stack inner-content tables and presentation grids nicely */
+    .inner-layout-table, .inner-layout-table tbody, .inner-layout-table tr, .inner-layout-table td,
+    .station-grid-table, .station-grid-table tbody, .station-grid-table tr, .station-grid-table td,
+    .projects-grid-table, .projects-grid-table tbody, .projects-grid-table tr, .projects-grid-table td,
+    .split-table, .split-table tbody, .split-table tr, .split-table td {
+        display: block !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box;
+    }
+
+    /* Clear fixed heights on mobile grid/project cards so text doesn't overflow */
+    .grid-card, .project-card {
+        height: auto !important;
+        margin-bottom: 12px;
+    }
+
+    /* Visual spacing adjustments for stacked split tables */
+    .padding-right { padding-right: 0 !important; }
+    .padding-left { padding-left: 0 !important; margin-top: 15px; }
+
+    /* Stacked bio images look better scaled down and centered on mobile */
+    .bio-img-cell {
+        width: 100% !important;
+        margin-top: 15px;
     }
 }
