@@ -56,7 +56,7 @@ body {
 }
 
 /* ==========================================================================
-   COMMON CARDS & TITLES
+   COMMON CARDS & TYPOGRAPHY HIERARCHY
    ========================================================================== */
 .card {
     background-color: #111a2e;
@@ -71,6 +71,35 @@ body {
     padding: 20px;
 }
 
+/* 1. Static Headings (Clean, high-contrast off-white) */
+.section-heading, 
+h2, 
+h3:not(.section-title) {
+    color: #f1f5f9; /* Slate 100 - static structural elements */
+    margin-top: 0;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+
+/* 2. Interactive Links & Linked Headings (Bright blue/cyan) */
+a, 
+.section-heading a,
+.projects-grid-table a {
+    color: #38bdf8; /* Accent blue - interactive elements */
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Hover/Focus States for all links */
+a:hover, 
+.section-heading a:hover,
+.projects-grid-table a:hover {
+    color: #7dd3fc; /* Lighter sky blue on hover */
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* Sidebar Section Headers (Upper Case Category Markers) */
 .section-title {
     color: #38bdf8;
     margin-top: 0;
@@ -79,13 +108,6 @@ body {
     font-size: 1rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-}
-
-.section-heading {
-    color: #38bdf8;
-    margin-top: 0;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
 }
 
 /* Utilities */
@@ -144,10 +166,12 @@ body {
 
 .btn:hover {
     background-color: #334155;
+    color: #38bdf8;
+    text-decoration: none;
 }
 
 /* ==========================================================================
-   TOWER IMAGE & CAPTION LINK (Cleaned & Integrated)
+   TOWER IMAGE & CAPTION LINK
    ========================================================================== */
 .tower-link-container {
     display: block;
@@ -526,14 +550,6 @@ body {
     color: #64748b;
     margin-top: 20px;
     padding-bottom: 10px;
-}
-
-/* ==========================================================================
-   Link Hover Section
-   ========================================================================== */
-.section-heading a:hover {
-    text-decoration: underline;
-    opacity: 0.9;
 }
 
 /* ==========================================================================
