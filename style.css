@@ -500,3 +500,72 @@ body {
     text-decoration: underline;
     opacity: 0.9;
 }
+
+/* =======================================================
+   Mobile Slide-Out Drawer Menu
+========================================================== */
+
+/* 1. Hide the mobile menu button by default on desktop */
+.mobile-menu-btn {
+    display: none;
+    background: #1e293b;
+    color: #38bdf8;
+    border: 1px solid #334155;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 15px;
+    vertical-align: middle;
+}
+
+.mobile-menu-btn:hover {
+    background: #334155;
+}
+
+/* 2. Mobile Rules (Screens smaller than 768px) */
+@media screen and (max-width: 768px) {
+    
+    /* Show the toggle button on mobile */
+    .mobile-menu-btn {
+        display: inline-block;
+    }
+
+    /* Convert the layout table rows/cells to blocks so they don't fight the layout */
+    .layout-table, 
+    .layout-table tbody, 
+    .layout-table tr {
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* Transform the sidebar into a fixed, off-screen drawer */
+    .sidebar-col {
+        display: block !important;
+        position: fixed !important;
+        top: 0;
+        left: -290px; /* Hidden off-screen to the left */
+        width: 280px !important;
+        height: 100%;
+        background: #0f172a; /* Dark background matching your site */
+        box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        z-index: 9999;
+        overflow-y: auto; /* Scrollable if your widgets are tall */
+        padding: 20px !important;
+        transition: left 0.3s ease-in-out; /* Smooth slide animation */
+        box-sizing: border-box;
+    }
+
+    /* When the active class is added by JS, slide it into view */
+    .sidebar-col.drawer-open {
+        left: 0 !important;
+    }
+
+    /* Ensure the main content takes up 100% width on mobile */
+    .main-col {
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+}
