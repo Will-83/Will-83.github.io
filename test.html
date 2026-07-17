@@ -27,14 +27,108 @@
         </tr>
     </table>
 
-    <!-- MAIN BODY LAYOUT -->
+    <!-- MAIN BODY LAYOUT (FULL WIDTH - NO SIDEBAR) -->
     <table role="presentation" class="layout-table">
         <tr>
-            <!-- LEFT SIDEBAR -->
-            <td class="sidebar-col">
+            <td class="main-col" style="width: 100%;">
                 
-                <!-- NAVIGATION CARD -->
-                <div class="card">
+                <!-- TITLE CARD -->
+                <div class="card padding-lg" style="text-align: center; border-bottom: 3px solid #38bdf8;">
+                    <h1 style="color: #ffffff; font-size: 2.2rem; margin: 0 0 10px 0; font-weight: 800; letter-spacing: 1px;">ARRL FIELD DAY 2026</h1>
+                    <p style="color: #38bdf8; font-size: 1.1rem; font-weight: 600; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Portable From the Ozark Canopy</p>
+                </div>
+
+                <!-- FIRST CONTENT BLOCK + SIDE-BY-SIDE IMAGES (ARRIVAL & ASSESSMENT) -->
+                <div class="card padding-lg">
+                    <h2 class="section-heading" style="color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 20px;">Arrival & Assessment</h2>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">
+                        Setting up a station at the top of a historic 100-foot watchtower requires careful planning. Every piece of gear—the Yaesu FT-857, heavy Bioenno LiFePO4 batteries, coax, ropes, and provisions—had to be hand-carried up the steep, narrow steel stairs. The structure is solid, but that cab gets smaller every time you look up! Fortunately, the weather was absolutely great for our deployment.
+                    </p>
+
+                    <!-- IMAGE GRID ROW 1 -->
+                    <table role="presentation" style="width: 100%; border-collapse: collapse; border: none; margin-top: 15px;">
+                        <tr>
+                            <!-- Image 1 -->
+                            <td style="width: 50%; vertical-align: top; padding-right: 10px; border: none; text-align: center;">
+                                <div style="background: #0f172a; padding: 10px; border-radius: 8px; border: 1px solid #334155;">
+                                    <img src="images/Fire_tower.jpg" alt="Looking up at the watchtower" style="width: 100%; height: auto; border-radius: 4px; display: block;" />
+                                    <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px; line-height: 1.4;">
+                                        Looking up at our home for a few hours. The structure is solid, but the cab shrinks the closer you get.
+                                    </div>
+                                </div>
+                            </td>
+                            <!-- Image 2 -->
+                            <td style="width: 50%; vertical-align: top; padding-left: 10px; border: none; text-align: center;">
+                                <div style="background: #0f172a; padding: 10px; border-radius: 8px; border: 1px solid #334155;">
+                                    <img src="images/takeoff_view.jpg" alt="100-foot takeoff view" style="width: 100%; height: auto; border-radius: 4px; display: block;" />
+                                    <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px; line-height: 1.4;">
+                                        100-Foot Takeoff: The view from the top is breathtaking, overlooking nothing but dense Missouri forest.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- SECOND CONTENT BLOCK + STATION DETAILS -->
+                <div class="card padding-lg" style="line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+                    <h2 class="section-heading" style="color: #38bdf8; border-bottom: 1px solid #334155; padding-bottom: 8px; margin-bottom: 20px;">The Antenna & Operation</h2>
+                    <p style="margin-bottom: 20px;">
+                        For the antenna, we suspended my homebrew 10m-40m linked dipole directly from the top cab structure of the tower, dropping the legs down as an inverted-V. The sheer elevation meant we had an incredible, unobstructed takeoff angle over the Ozark canopy, allowing our low-power signals to punch far above their weight class.
+                    </p>
+                    <p style="margin-bottom: 25px;">
+                        Operating from a massive metal frame presents unique challenges with common-mode currents traveling back down the feedline. Thankfully, the FT-240-31 common-mode toroidal choke on the linked dipole did its job perfectly, keeping the RF out of our logging equipment and audio lines. Running entirely on battery power (Class 1B) kept our noise floor virtually nonexistent.
+                    </p>
+
+                    <!-- IMAGE GRID ROW 2 (If you have more original photos to place side-by-side) -->
+                    <table role="presentation" style="width: 100%; border-collapse: collapse; border: none;">
+                        <tr>
+                            <!-- Image 3 -->
+                            <td style="width: 50%; vertical-align: top; padding-right: 10px; border: none; text-align: center;">
+                                <div style="background: #0f172a; padding: 10px; border-radius: 8px; border: 1px solid #334155;">
+                                    <img src="images/rig_setup.jpg" alt="Yaesu FT-857 setup" style="width: 100%; height: auto; border-radius: 4px; display: block;" />
+                                    <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px; line-height: 1.4;">
+                                        The operating position: Yaesu FT-857 running on clean LiFePO4 battery power.
+                                    </div>
+                                </div>
+                            </td>
+                            <!-- Image 4 -->
+                            <td style="width: 50%; vertical-align: top; padding-left: 10px; border: none; text-align: center;">
+                                <div style="background: #0f172a; padding: 10px; border-radius: 8px; border: 1px solid #334155;">
+                                    <img src="images/logging_mic.jpg" alt="Microphone and log details" style="width: 100%; height: auto; border-radius: 4px; display: block;" />
+                                    <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 10px; line-height: 1.4;">
+                                        Racking up contacts down in the log book as the bands shifted into the evening.
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- CONCLUSION CARD -->
+                <div class="card padding-lg" style="line-height: 1.6; color: #cbd5e1; font-size: 0.95rem; text-align: center;">
+                    <p style="margin: 0 auto 15px auto; max-width: 800px;">
+                        It was a weekend of solid operating, great camaraderie, and an excellent exercise in remote emergency communications deployment. We proved we can establish a highly effective, long-range HF station anywhere—even 100 feet in the air on a moment's notice.
+                    </p>
+                    
+                    <div class="signature" style="display: inline-block; text-align: left; margin-top: 10px;">
+                        <span class="sig-73">73,</span><br>
+                        <span class="sig-name">Will</span>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- CLEAN COPYRIGHT FOOTER -->
+    <div class="footer-copyright">
+        &copy; 2026 Will - W8MB. Hosted on <a href="https://will-83.github.io/" target="_blank" style="color: #38bdf8; text-decoration: none;">GitHub Pages</a>.
+    </div>
+</div>
+
+</body>
+</html>                <div class="card">
                     <h3 class="section-title">Navigation</h3>
                     <a href="index.html" class="btn" style="display: block; margin-bottom: 8px; text-align: center;">Home Base</a>
                     <a href="about.html" class="btn" style="display: block; margin-bottom: 8px; text-align: center;">About Me</a>
