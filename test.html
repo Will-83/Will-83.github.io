@@ -40,12 +40,34 @@
                         <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
                     </div>
 
-                    <!-- ON THE AIR -->
-                    <div class="card">
-                        <h3 class="section-title">On The Air</h3>
-                        <img src="https://Will-83.github.io/status.png" alt="Ham Radio Status" class="status-img" />
-                    </div>
-
+                  <!-- ON THE AIR (DYNAMIC HAMSTATUS WIDGET) -->
+<div class="card text-center">
+    <h3 class="section-title text-left">On The Air</h3>
+    <div id="hs-widget" style="padding: 10px 5px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span id="hs-indicator" style="font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; background: #e74c3c; color: #fff;">Offline</span>
+            <span id="hs-time" style="font-size: 0.75rem; color: #64748b;">--</span>
+        </div>
+        <div style="font-size: 0.9rem; line-height: 1.5;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="color: #94a3b8;">Frequency</span>
+                <strong><span id="hs-freq">--</span></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="color: #94a3b8;">Mode</span>
+                <strong><span id="hs-mode">--</span></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span style="color: #94a3b8;">Location</span>
+                <strong><span id="hs-loc" style="font-size: 0.8rem;">--</span></strong>
+            </div>
+            <div style="border-top: 1px dashed #334155; padding-top: 8px; margin-top: 8px; color: #cbd5e1; font-style: italic; font-size: 0.8rem; text-align: center;">
+                "<span id="hs-message">No status set.</span>"
+            </div>
+        </div>
+    </div>
+</div>
+                    
                     <!-- QUICK LINKS -->
                     <div class="card">
                         <h3 class="section-title">Quick Links</h3>
