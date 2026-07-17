@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>W8MB - Amateur Radio Station</title>
     <!-- Link to your external stylesheet -->
     <link rel="stylesheet" href="style.css">
@@ -13,28 +13,279 @@
 </head>
 <body>
 
-<div class="main-wrapper">
+    <div class="main-wrapper">
     
-    <!-- HEADER (Image Only) -->
-    <div class="header-banner">
-        <img src="images/Header.jpg" alt="W8MB Banner" />
+        <!-- FLOATING MOBILE MENU BUTTON -->
+        <button id="drawer-toggle" class="mobile-menu-btn">☰ Station Info</button>
+        
+        <!-- HEADER (Image Only) -->
+        <div class="header-banner">
+            <img src="images/Header.jpg" alt="W8MB Banner" />
+        </div>
+
+        <!-- MAIN BODY LAYOUT -->
+        <table role="presentation" class="layout-table">
+            <tr>
+                <!-- LEFT SIDEBAR -->
+                <td class="sidebar-col">
+                    
+                    <!-- STATION INFO -->
+                    <div class="card">
+                        <h3 class="section-title">Station Info</h3>
+                        <div class="sidebar-row"><span>QTH</span><strong>Mansfield, MO</strong></div>
+                        <div class="sidebar-row"><span>County</span><strong>Wright County</strong></div>
+                        <div class="sidebar-row"><span>Grid</span><strong>EM47</strong></div>
+                        <div class="sidebar-row"><span>First Lic.</span><strong>2020</strong></div>
+                        <div class="sidebar-row"><span>Extra Cl.</span><strong>June 2026</strong></div>
+                        <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
+                    </div>
+
+                    <!-- ON THE AIR -->
+                    <div class="card">
+                        <h3 class="section-title">On The Air</h3>
+                        <img src="https://Will-83.github.io/status.png" alt="Ham Radio Status" class="status-img" />
+                    </div>
+
+                    <!-- QUICK LINKS -->
+                    <div class="card">
+                        <h3 class="section-title">Quick Links</h3>
+                        <a href="https://logbook.qrz.com" target="_blank" class="btn">QRZ Logbook</a>
+                        <a href="https://lotw.arrl.org/lotwuser/default" target="_blank" class="btn">LoTW Portal</a>
+                        <a href="https://www.eqsl.cc/Member.cfm?W8MB" target="_blank" class="btn">eQSL Profile</a>
+                    </div>
+
+                    <!-- SOLAR CONDITIONS -->
+                    <div class="card text-center">
+                        <h3 class="section-title text-left">Propagation</h3>
+                        <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Click to add Solar-Terrestrial Data to your website!" class="prop-link">
+                            <img src="https://www.hamqsl.com/solar100sc.php" alt="Solar-Terrestrial Data" class="prop-img" />
+                        </a>
+                    </div>
+                    
+                    <!-- FIND ME -->
+                    <div class="card">
+                        <h3 class="section-title">Find Me</h3>
+                        <div class="sidebar-row bottom-border">
+                             <span style="color: #94a3b8;">Email</span>
+                            <a href="mailto:will.w8mb@gmail.com" style="color: #38bdf8; font-weight: 500; font-size: 0.75rem; text-decoration: none;">
+                                will.w8mb@gmail.com
+                            </a>
+                        </div>
+                        <div class="sidebar-row social-row">
+                            <span>Social</span>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/wbest522/" target="_blank">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" class="social-icon" />
+                                </a>
+                                <a href="https://www.instagram.com/wbest522/" target="_blank">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="social-icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+
+<!-- RIGHT MAIN CONTENT -->
+<td class="main-col">
+    
+    <!-- HELLO CARD -->
+    <div class="card padding-lg">
+        <h2 class="hello-header">HELLO FROM W8MB!</h2>
+        <table role="presentation" class="inner-layout-table">
+            <tr>
+                <td class="bio-text-cell">
+                    My amateur radio journey began in 2020. It started with off-roading and a YouTube video about trail communications that introduced me to ham radio. What began as a way to talk on the trail has grown into a deep passion for learning, building, experimenting, and helping others discover the hobby.<br><br>
+                    Today, I love operating HF portable, assembling antennas, digital modes, and diving head-first into Morse code. I also serve as an EMT and volunteer firefighter, and enjoy keeping our department's radio programming optimized. Thanks for stopping by!<br><br>
+                    
+                    <div class="station-journey-link">
+                        For more photos, background, and the stories behind the gear: 
+                        <a href="https://will-83.github.io/about.html" target="_blank">Read my complete station journey here.</a>
+                    </div>
+                    <div class="signature">
+                        <span class="sig-73">73,</span><br>
+                        <span class="sig-name">Will</span>
+                    </div>
+                </td>
+                <td class="bio-img-cell">
+                    <a href="field-day2026.html" class="tower-link-container">
+                        <img src="images/Fire_tower.jpg" alt="ARRL Field Day 2026" class="bio-img">
+                        <div class="img-caption">
+                            ARRL Field Day 2026<br>
+                            <span class="caption-subtext">Portable from a 100' Missouri watchtower</span>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
 
-    <!-- MAIN BODY LAYOUT -->
-    <table role="presentation" class="layout-table">
-        <tr>
-            <!-- LEFT SIDEBAR -->
-            <td class="sidebar-col">
-                
-                <!-- STATION INFO -->
-                <div class="card">
-                    <h3 class="section-title">Station Info</h3>
-                    <div class="sidebar-row"><span>QTH</span><strong>Mansfield, MO</strong></div>
-                    <div class="sidebar-row"><span>County</span><strong>Wright County</strong></div>
-                    <div class="sidebar-row"><span>Grid</span><strong>EM47</strong></div>
-                    <div class="sidebar-row"><span>First Lic.</span><strong>2020</strong></div>
-                    <div class="sidebar-row"><span>Extra Cl.</span><strong>June 2026</strong></div>
-                    <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
+                    <!-- MY STATION -->
+                    <div class="card padding-lg">
+                        <h2 class="section-heading">My Station</h2>
+                        <table role="presentation" class="station-grid-table">
+                            <tr>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">HF Portable</div>
+                                        <div class="grid-title">Yaesu FT-857D</div>
+                                        <div class="grid-desc">Homebrew Linked Dipole (40m-10m)</div>
+                                    </div>
+                                </td>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">VHF / UHF Mobile</div>
+                                        <div class="grid-title">TYT TH-9800</div>
+                                        <div class="grid-desc">Quad-band using N9TAX Slim-Jim</div>
+                                    </div>
+                                </td>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">Digital Voice</div>
+                                        <div class="grid-title">DMR / YSF / NXDN</div>
+                                        <div class="grid-desc">Baofeng DM-32, Kenwood NX-220, MMDVM Hotspot</div>
+                                    </div>
+                                </td>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">Handhelds</div>
+                                        <div class="grid-title">Baofeng UV-5R</div>
+                                        <div class="grid-desc">The original rig & reliable backup</div>
+                                        <div class="grid-title spacing-top">Baofeng 5R Mini</div>
+                                        <div class="grid-desc">EDC For Size</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- LATEST PROJECTS -->
+                    <div class="card padding-lg">
+                        <h2 class="section-heading">
+                            <a href="projects.html" style="color: inherit; text-decoration: none;">Latest Workbench Projects →</a>
+                        </h2>
+                        <table role="presentation" class="projects-grid-table">
+                            <tr>
+                                <td class="project-cell">
+                                    <div class="project-card">
+                                        <img src="images/Dipole.jpg" alt="Linked Dipole" />
+                                        <div class="project-card-body">
+                                            <div class="project-title">Linked Dipole</div>
+                                            <div class="project-desc">10m-40m multi-band build utilizing an FT-240-31 common-mode choke.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="project-cell">
+                                    <div class="project-card">
+                                        <img src="images/Key.jpg" alt="Morse Code Key" />
+                                        <div class="project-card-body">
+                                            <div class="project-title">Learning CW</div>
+                                            <div class="project-desc">Focusing strictly on pure audio head-copy via Morse Ninja with my Putikeeg keys.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="project-cell">
+                                    <div class="project-card">
+                                        <img src="images/Wio_L1.jpg" alt="Meshtastic Node" />
+                                        <div class="project-card-body">
+                                            <div class="project-title">Meshtastic Nodes</div>
+                                            <div class="project-desc">Configuring Heltec V4 base nodes and custom Wio Tracker L1 enclosures.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- TIMELINE & OFF THE AIR SPLIT -->
+                    <table role="presentation" class="split-table">
+                        <tr>
+                            <td class="split-cell padding-right">
+                                <div class="card padding-lg height-full">
+                                    <h2 class="section-heading">My Story</h2>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-year">2020</div>
+                                            <div class="timeline-desc">Got licensed (Tech + General) after discovering ham radio through off-roading. Built first HF antennas.</div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-year">2026</div>
+                                            <div class="timeline-desc">Earned Amateur Extra class license & became a Volunteer Examiner (VE). Operated from the 100ft watchtower.</div>
+                                        </div>
+                                        <div class="timeline-item no-margin">
+                                            <div class="timeline-year">Current</div>
+                                            <div class="timeline-desc">Diving into CW head copy, building portable gear, and expanding local digital infrastructure.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="split-cell padding-left">
+                                <div class="card padding-lg height-full">
+                                    <h2 class="section-heading">Off The Air</h2>
+                                    <ul class="interests-list">
+                                        <li><span>»</span> EMT & Volunteer Firefighter</li>
+                                        <li><span>»</span> Radio Programming for First Responders</li>
+                                        <li><span>»</span> 3D Printing & CAD (Ender 3 / Klipper / PETG)</li>
+                                        <li><span>»</span> Jeep Wranglers & Off-Roading Adventures</li>
+                                        <li><span>»</span> Hiking, Camping, Hunting & Fishing</li>
+                                        <li><span>»</span> Locksport</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+        <!-- AFFILIATIONS FOOTER STRIP -->
+        <div class="footer-affiliations">
+            <div class="logo-item">
+                <a href="https://www.arrl.org/volunteer-examiners" target="_blank">
+                    <img src="images/ARRL_logo.jpg" alt="ARRL VE Logo" />
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://smarc.org/" target="_blank">
+                    <img src="images/SMARC_logo.jpg" alt="SMARC Logo" />
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://lzmesh.com" target="_blank">
+                    <img src="images/LZMesh_logo.jpg" alt="LZMesh Community" />
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://lzarc.com" target="_blank">
+                    <img src="images/LZARC_logo.JPG" alt="LZARC (W0LZ)" />
+                </a>
+            </div>
+        </div>
+
+        <!-- CLEAN COPYRIGHT FOOTER -->
+        <div class="footer-copyright">
+            Thank you for visiting my QRZ page! &bull; 73, Will - W8MB
+        </div>
+    </div>
+
+<script>
+    const menuBtn = document.getElementById('drawer-toggle');
+    const sidebar = document.querySelector('.sidebar-col');
+
+    menuBtn.addEventListener('click', function(e) {
+        sidebar.classList.toggle('drawer-open');
+        e.stopPropagation();
+    });
+
+    document.addEventListener('click', function(e) {
+        if (sidebar.classList.contains('drawer-open') && !sidebar.contains(e.target)) {
+            sidebar.classList.remove('drawer-open');
+        }
+    });
+</script>
+</body>
+</html>                    <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
                 </div>
 
                 <!-- ON THE AIR -->
