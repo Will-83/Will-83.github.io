@@ -146,6 +146,47 @@ body {
     background-color: #334155;
 }
 
+/* ==========================================================================
+   TOWER IMAGE & CAPTION LINK (Cleaned & Integrated)
+   ========================================================================== */
+.tower-link-container {
+    display: block;
+    text-decoration: none; 
+    color: inherit;
+}
+
+.img-caption {
+    font-size: 0.85rem;
+    color: #38bdf8; /* Accent blue indicates interactive element */
+    font-weight: bold;
+    margin-top: 8px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.caption-subtext {
+    font-size: 0.75rem;
+    color: #94a3b8; /* Secondary description remains clean gray */
+    font-weight: normal;
+}
+
+/* Link Actions (Desktop Hover & Mobile Touch) */
+.tower-link-container:hover .img-caption,
+.tower-link-container:active .img-caption {
+    color: #60a5fa; /* Lightens the blue text slightly on hover/press */
+    text-decoration: underline;
+}
+
+.tower-link-container img {
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.tower-link-container:hover img,
+.tower-link-container:active img {
+    opacity: 0.9;          /* Dimming gives instant mobile touch feedback */
+    border-color: #38bdf8; /* Changes border to accent blue */
+}
+
 /* Propagation */
 .prop-link {
     display: block;
@@ -237,13 +278,7 @@ body {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
-}
-
-.img-caption {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    margin-top: 8px;
-    line-height: 1.3;
+    border: 1px solid #1e293b; /* Consistent borders */
 }
 
 /* Station Journey Link */
@@ -312,7 +347,7 @@ body {
     padding: 12px;
     border-radius: 4px;
     border: 1px solid #1e293b;
-    height: 120px; /* Slight buffer to prevent overflow */
+    height: 120px;
 }
 
 .grid-tag {
@@ -505,26 +540,24 @@ body {
    MOBILE MENU TOGGLE BUTTON (Desktop Hidden Setup)
    ========================================================================== */
 .mobile-menu-btn {
-    display: none; /* Hidden by default on desktop */
+    display: none;
 }
 
 /* ==========================================================================
    RESPONSIVE DESIGN (Screens smaller than 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
-    /* 1. Ensure the main wrapper establishes a relative positioning context for absolute menu buttons */
     .main-wrapper {
         position: relative;
         padding: 15px;
     }
 
-    /* 2. Floating toggle button styles for mobile view (Cleaned & Consolidated) */
     .mobile-menu-btn {
         display: block !important;
         position: absolute;
-        top: 25px; /* Floats inside top padding of .main-wrapper */
+        top: 25px;
         right: 25px;
-        z-index: 10000; /* Stays above absolutely everything */
+        z-index: 10000;
         background: #1e293b;
         color: #38bdf8;
         border: 1px solid #334155;
@@ -541,7 +574,6 @@ body {
         background: #334155;
     }
 
-    /* 3. Main layout elements stack vertically */
     .layout-table, 
     .layout-table tbody, 
     .layout-table tr {
@@ -549,36 +581,32 @@ body {
         width: 100% !important;
     }
 
-    /* 4. Transform the sidebar into a smooth, sliding off-screen drawer */
     .sidebar-col {
         display: block !important;
         position: fixed !important;
         top: 0;
-        left: -290px; /* Hidden off-screen left */
+        left: -290px;
         width: 280px !important;
         height: 100%;
         background: #0f172a;
         box-shadow: 5px 0 15px rgba(0,0,0,0.6);
         z-index: 9999;
-        overflow-y: auto; /* Scrollable drawer for long widgets */
+        overflow-y: auto;
         padding: 20px !important;
         transition: left 0.3s ease-in-out;
         box-sizing: border-box;
     }
 
-    /* Triggered by JS to slide drawer in */
     .sidebar-col.drawer-open {
         left: 0 !important;
     }
 
-    /* 5. Force the main column to fill the layout width */
     .main-col {
         display: block !important;
         width: 100% !important;
         padding: 0 !important;
     }
 
-    /* 6. Stack inner-content tables and presentation grids nicely */
     .inner-layout-table, .inner-layout-table tbody, .inner-layout-table tr, .inner-layout-table td,
     .station-grid-table, .station-grid-table tbody, .station-grid-table tr, .station-grid-table td,
     .projects-grid-table, .projects-grid-table tbody, .projects-grid-table tr, .projects-grid-table td,
@@ -590,17 +618,14 @@ body {
         box-sizing: border-box;
     }
 
-    /* Clear fixed heights on mobile grid/project cards so text doesn't overflow */
     .grid-card, .project-card {
         height: auto !important;
         margin-bottom: 12px;
     }
 
-    /* Visual spacing adjustments for stacked split tables */
     .padding-right { padding-right: 0 !important; }
     .padding-left { padding-left: 0 !important; margin-top: 15px; }
 
-    /* Stacked bio images look better scaled down and centered on mobile */
     .bio-img-cell {
         display: block !important;
         width: 100% !important;
