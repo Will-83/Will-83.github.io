@@ -512,14 +512,13 @@ body {
    RESPONSIVE DESIGN (Screens smaller than 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
-    
-    /* Ensure the main wrapper establishes a relative positioning context for the button */
+    /* 1. Ensure the main wrapper establishes a relative positioning context for absolute menu buttons */
     .main-wrapper {
         position: relative;
         padding: 15px;
     }
 
-    /* Floating toggle button styles for mobile view */
+    /* 2. Floating toggle button styles for mobile view (Cleaned & Consolidated) */
     .mobile-menu-btn {
         display: block !important;
         position: absolute;
@@ -542,7 +541,7 @@ body {
         background: #334155;
     }
 
-    /* Main layout elements stack vertically */
+    /* 3. Main layout elements stack vertically */
     .layout-table, 
     .layout-table tbody, 
     .layout-table tr {
@@ -550,7 +549,7 @@ body {
         width: 100% !important;
     }
 
-    /* Transform the sidebar into a smooth, sliding off-screen drawer */
+    /* 4. Transform the sidebar into a smooth, sliding off-screen drawer */
     .sidebar-col {
         display: block !important;
         position: fixed !important;
@@ -572,14 +571,14 @@ body {
         left: 0 !important;
     }
 
-    /* Force the main column to fill the layout */
+    /* 5. Force the main column to fill the layout width */
     .main-col {
         display: block !important;
         width: 100% !important;
         padding: 0 !important;
     }
 
-    /* Stack inner-content tables and presentation grids nicely */
+    /* 6. Stack inner-content tables and presentation grids nicely */
     .inner-layout-table, .inner-layout-table tbody, .inner-layout-table tr, .inner-layout-table td,
     .station-grid-table, .station-grid-table tbody, .station-grid-table tr, .station-grid-table td,
     .projects-grid-table, .projects-grid-table tbody, .projects-grid-table tr, .projects-grid-table td,
@@ -603,7 +602,9 @@ body {
 
     /* Stacked bio images look better scaled down and centered on mobile */
     .bio-img-cell {
+        display: block !important;
         width: 100% !important;
         margin-top: 15px;
+        text-align: center !important;
     }
 }
