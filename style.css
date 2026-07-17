@@ -492,3 +492,11 @@ body {
     margin-top: 20px;
     padding-bottom: 10px;
 }
+
+/* ==========================================================================
+   Link Hover Section
+   ========================================================================== */
+.section-heading a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
