@@ -41,6 +41,7 @@ body {
     border: none;
     margin: 0;
     padding: 0;
+    table-layout: fixed;
 }
 
 .sidebar-col {
@@ -81,20 +82,25 @@ h3:not(.section-title) {
     letter-spacing: 1px;
 }
 
-/* 2. Interactive Links & Linked Headings (Bright blue/cyan) */
+/* 2. Interactive Links & Linked Headings (FORCE bright blue/cyan) */
 a, 
+a *,
 .section-heading a,
+h2 a,
+h3 a,
 .projects-grid-table a {
-    color: #38bdf8; /* Accent blue - interactive elements */
+    color: #38bdf8 !important; /* Forces interactive headings back to blue */
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 }
 
 /* Hover/Focus States for all links */
 a:hover, 
+a:hover *,
 .section-heading a:hover,
+h2 a:hover,
 .projects-grid-table a:hover {
-    color: #7dd3fc; /* Lighter sky blue on hover */
+    color: #7dd3fc !important; /* Lighter sky blue on hover */
     text-decoration: underline;
     opacity: 1;
 }
@@ -152,7 +158,7 @@ a:hover,
 .btn {
     display: block;
     background-color: #1e293b;
-    color: #ffffff;
+    color: #ffffff !important;
     text-align: center;
     padding: 10px;
     margin-bottom: 8px;
@@ -166,7 +172,7 @@ a:hover,
 
 .btn:hover {
     background-color: #334155;
-    color: #38bdf8;
+    color: #38bdf8 !important;
     text-decoration: none;
 }
 
@@ -181,7 +187,7 @@ a:hover,
 
 .img-caption {
     font-size: 0.85rem;
-    color: #38bdf8; /* Accent blue indicates interactive element */
+    color: #38bdf8 !important; /* Accent blue indicates interactive element */
     font-weight: bold;
     margin-top: 8px;
     line-height: 1.4;
@@ -197,7 +203,7 @@ a:hover,
 /* Link Actions (Desktop Hover & Mobile Touch) */
 .tower-link-container:hover .img-caption,
 .tower-link-container:active .img-caption {
-    color: #60a5fa; /* Lightens the blue text slightly on hover/press */
+    color: #60a5fa !important; 
     text-decoration: underline;
 }
 
@@ -316,14 +322,14 @@ a:hover,
 }
 
 .station-journey-link a {
-    color: #38bdf8;
+    color: #38bdf8 !important;
     font-weight: bold;
     text-decoration: underline;
     margin-left: 5px;
 }
 
 .station-journey-link a:hover {
-    color: #60a5fa;
+    color: #60a5fa !important;
 }
 
 /* Handwritten Signature block */
@@ -560,7 +566,7 @@ a:hover,
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (Screens smaller than 768px)
+   RESPONSIVE DESIGN (Locked Strictly to screens smaller than 768px)
    ========================================================================== */
 @media screen and (max-width: 768px) {
     .main-wrapper {
@@ -590,6 +596,7 @@ a:hover,
         background: #334155;
     }
 
+    /* Table layout fallback rules strictly confined to mobile viewport */
     .layout-table, 
     .layout-table tbody, 
     .layout-table tr {
@@ -632,6 +639,11 @@ a:hover,
         padding-left: 0 !important;
         padding-right: 0 !important;
         box-sizing: border-box;
+    }
+
+    .grid-cell, .project-cell, .split-cell {
+        display: block !important;
+        width: 100% !important;
     }
 
     .grid-card, .project-card {
