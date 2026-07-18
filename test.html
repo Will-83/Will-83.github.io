@@ -339,9 +339,11 @@
 
             // Update HTML elements with JSON data
             document.getElementById('hs-activity').textContent = data.activity || data.operating_mode || '--';
-            document.getElementById('hs-mode').textContent = data.mode;
-            document.getElementById('hs-loc').textContent = `${data.location.description} (${data.location.grid_square})`;
-            document.getElementById('hs-message').textContent = data.custom_message;
+            document.getElementById('hs-mode').textContent = data.mode || '--';
+            document.getElementById('hs-loc').textContent = data.location
+                ? `${data.location.description || '--'} (${data.location.grid_square || '--'})`
+                : '--';
+            document.getElementById('hs-message').textContent = data.custom_message || 'No status set.';
 
             // DMR sessions with an active talkgroup show "TG <id> - <name>" in
             // place of the Frequency row; everything else shows frequency.
