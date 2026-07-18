@@ -10,6 +10,63 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <!-- TEST: color-coded HamStatus widget styles, scoped to this page only -->
+    <style>
+        .hs-top-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .hs-beacon {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: var(--state-color, #64748b);
+            box-shadow: 0 0 8px 2px var(--state-color, #64748b);
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .hs-state-label {
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            color: var(--state-color, #64748b);
+            transition: color 0.4s ease;
+        }
+
+        .hs-time {
+            margin-left: auto;
+            font-size: 0.7rem;
+            color: #64748b;
+        }
+
+        .hs-detail {
+            font-size: 0.8rem;
+            line-height: 1.6;
+            padding-left: 20px;
+            color: var(--state-color, #64748b);
+            transition: color 0.4s ease;
+        }
+
+        .hs-detail .label {
+            color: #64748b;
+            font-weight: normal;
+            margin-right: 6px;
+        }
+
+        .hs-message {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #334155;
+            font-style: italic;
+            font-size: 0.75rem;
+            color: #cbd5e1;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,39 +97,25 @@
                         <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
                     </div>
 
-                  <!-- ON THE AIR (DYNAMIC HAMSTATUS WIDGET) -->
-<div class="card text-center">
+                  <!-- ON THE AIR (COLOR-CODED HAMSTATUS WIDGET - TEST) -->
+<div class="card">
     <h3 class="section-title text-left">On The Air</h3>
-    <div id="hs-widget" style="padding: 10px 5px; text-align: left;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span id="hs-indicator" style="font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; background: #e74c3c; color: #fff;">Offline</span>
-            <span id="hs-time" style="font-size: 0.75rem; color: #64748b;">--</span>
+    <div id="hs-widget">
+        <div class="hs-top-row">
+            <span class="hs-beacon" id="hs-beacon"></span>
+            <span class="hs-state-label" id="hs-state-label">OFF AIR</span>
+            <span class="hs-time" id="hs-time">--</span>
         </div>
-        <div style="font-size: 0.9rem; line-height: 1.5;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="color: #94a3b8;">Status</span>
-                <strong><span id="hs-activity">--</span></strong>
-            </div>
-            <div id="hs-freq-row" style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="color: #94a3b8;">Frequency</span>
-                <strong><span id="hs-freq">--</span></strong>
-            </div>
-            <div id="hs-tg-row" style="display: none; justify-content: space-between; margin-bottom: 4px;">
-                <span style="color: #94a3b8;">Talkgroup</span>
-                <strong><span id="hs-tg">--</span></strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                <span style="color: #94a3b8;">Mode</span>
-                <strong><span id="hs-mode">--</span></strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                <span style="color: #94a3b8;">Location</span>
-                <strong><span id="hs-loc" style="font-size: 0.8rem;">--</span></strong>
-            </div>
-            <div style="border-top: 1px dashed #334155; padding-top: 8px; margin-top: 8px; color: #cbd5e1; font-style: italic; font-size: 0.8rem; text-align: center;">
-                "<span id="hs-message">No status set.</span>"
-            </div>
+        <div class="hs-detail">
+            <span class="label">Activity</span><span id="hs-activity">--</span>
         </div>
+        <div class="hs-detail">
+            <span class="label" id="hs-freqtg-label">Frequency</span><span id="hs-freqtg">--</span>
+        </div>
+        <div class="hs-detail">
+            <span class="label">Mode</span><span id="hs-mode">--</span>
+        </div>
+        <div class="hs-message" id="hs-message">No status set.</div>
     </div>
 </div>
                     
@@ -315,12 +358,50 @@
         }
     });
 
-    // --- Dynamic HamStatus Fetcher ---
+    // --- Dynamic HamStatus Fetcher (color-coded widget) ---
     const HS_STATE_COLORS = {
-        on_air: { label: 'ON AIR', bg: '#2ecc71' },
-        monitoring: { label: 'MONITORING', bg: '#f0ad4e' },
-        off_air: { label: 'OFFLINE', bg: '#e74c3c' }
+        on_air: { label: 'ON AIR', color: '#2ecc71' },
+        monitoring: { label: 'MONITORING', color: '#f0ad4e' },
+        off_air: { label: 'OFF AIR', color: '#64748b' }
     };
+
+    function applyHamStatus(data) {
+        // Supports both the v1.0 schema (frequency as an object, state as an
+        // enum) and the older flat schema, so this keeps working even against
+        // a status.json that hasn't been migrated yet.
+        const freq = (data.frequency && typeof data.frequency === 'object')
+            ? data.frequency
+            : { value: data.frequency, unit: 'MHz' };
+        const state = data.state || (data.is_active ? 'on_air' : 'off_air');
+        const info = HS_STATE_COLORS[state] || HS_STATE_COLORS.off_air;
+
+        document.getElementById('hs-widget').style.setProperty('--state-color', info.color);
+        document.getElementById('hs-state-label').textContent = info.label;
+        document.getElementById('hs-activity').textContent = data.activity || data.operating_mode || '--';
+        document.getElementById('hs-mode').textContent = data.mode || '--';
+        document.getElementById('hs-message').textContent = data.custom_message || 'No status set.';
+
+        // DMR sessions with an active talkgroup, or a reflector session,
+        // take over the Frequency row; everything else shows frequency.
+        const freqTgLabel = document.getElementById('hs-freqtg-label');
+        const freqTg = document.getElementById('hs-freqtg');
+        if (data.mode === 'DMR' && data.talkgroup) {
+            freqTgLabel.textContent = 'Talkgroup';
+            freqTg.textContent = data.talkgroup_name && data.talkgroup_name !== String(data.talkgroup)
+                ? `TG ${data.talkgroup} - ${data.talkgroup_name}`
+                : `TG ${data.talkgroup}`;
+        } else if (data.reflector) {
+            freqTgLabel.textContent = 'Reflector';
+            freqTg.textContent = data.reflector;
+        } else {
+            freqTgLabel.textContent = 'Frequency';
+            freqTg.textContent = freq.value ? `${freq.value} ${freq.unit || 'MHz'}` : '--';
+        }
+
+        const updateTime = data.last_updated ? new Date(data.last_updated) : new Date();
+        document.getElementById('hs-time').textContent =
+            updateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
 
     async function fetchHamStatus() {
         try {
@@ -328,49 +409,7 @@
             const response = await fetch('https://will-83.github.io/hamstatus/status.json?t=' + Date.now(), { cache: 'no-store' });
             if (!response.ok) throw new Error('Network response was not ok');
             const data = await response.json();
-
-            // Supports both the v1.0 schema (frequency as an object, state as an
-            // enum) and the older flat schema, so this keeps working even against
-            // a status.json that hasn't been migrated yet.
-            const freq = (data.frequency && typeof data.frequency === 'object')
-                ? data.frequency
-                : { value: data.frequency, unit: 'MHz' };
-            const state = data.state || (data.is_active ? 'on_air' : 'off_air');
-
-            // Update HTML elements with JSON data
-            document.getElementById('hs-activity').textContent = data.activity || data.operating_mode || '--';
-            document.getElementById('hs-mode').textContent = data.mode || '--';
-            document.getElementById('hs-loc').textContent = data.location
-                ? `${data.location.description || '--'} (${data.location.grid_square || '--'})`
-                : '--';
-            document.getElementById('hs-message').textContent = data.custom_message || 'No status set.';
-
-            // DMR sessions with an active talkgroup show "TG <id> - <name>" in
-            // place of the Frequency row; everything else shows frequency.
-            const freqRow = document.getElementById('hs-freq-row');
-            const tgRow = document.getElementById('hs-tg-row');
-            if (data.mode === 'DMR' && data.talkgroup) {
-                freqRow.style.display = 'none';
-                tgRow.style.display = 'flex';
-                const tgLabel = data.talkgroup_name && data.talkgroup_name !== String(data.talkgroup)
-                    ? `TG ${data.talkgroup} - ${data.talkgroup_name}`
-                    : `TG ${data.talkgroup}`;
-                document.getElementById('hs-tg').textContent = tgLabel;
-            } else {
-                freqRow.style.display = 'flex';
-                tgRow.style.display = 'none';
-                document.getElementById('hs-freq').textContent = `${freq.value ?? '--'} ${freq.unit || 'MHz'}`;
-            }
-            
-            // Format time
-            const updateTime = new Date(data.last_updated);
-            document.getElementById('hs-time').textContent = updateTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
-            // Toggle status indicator colors (on_air / monitoring / off_air)
-            const indicator = document.getElementById('hs-indicator');
-            const info = HS_STATE_COLORS[state] || HS_STATE_COLORS.off_air;
-            indicator.textContent = info.label;
-            indicator.style.background = info.bg;
+            applyHamStatus(data);
         } catch (error) {
             console.error('Error fetching HamStatus:', error);
             document.getElementById('hs-message').textContent = "Unable to load live status.";
