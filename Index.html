@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>W8MB - Amateur Radio Station</title>
+    <!-- Link to your external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for the signature -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-wrapper">
+    
+        <!-- FLOATING MOBILE MENU BUTTON -->
+        <button id="drawer-toggle" class="mobile-menu-btn">☰ Station Info</button>
+        
+        <!-- HEADER (Image Only) -->
+        <div class="header-banner">
+            <img src="images/Header.jpg" alt="W8MB Banner" />
+        </div>
+
+        <!-- MAIN BODY LAYOUT -->
+        <table role="presentation" class="layout-table">
+            <tr>
+                <!-- LEFT SIDEBAR -->
+                <td class="sidebar-col">
+                    
+                    <!-- STATION INFO -->
+                    <div class="card">
+                        <h3 class="section-title">Station Info</h3>
+                        <div class="sidebar-row"><span>QTH</span><strong>Mansfield, MO</strong></div>
+                        <div class="sidebar-row"><span>County</span><strong>Wright County</strong></div>
+                        <div class="sidebar-row"><span>Grid</span><strong>EM47</strong></div>
+                        <div class="sidebar-row"><span>First Lic.</span><strong>2020</strong></div>
+                        <div class="sidebar-row"><span>Extra Cl.</span><strong>June 2026</strong></div>
+                        <div class="sidebar-row"><span>VE Status</span><strong>July 2026</strong></div>
+                    </div>
+
+                  <!-- ON THE AIR (DYNAMIC HAMSTATUS WIDGET) -->
+<div class="card text-center">
+    <h3 class="section-title text-left">On The Air</h3>
+    <div id="hs-widget" style="padding: 10px 5px; text-align: left;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <span id="hs-indicator" style="font-size: 0.8rem; padding: 2px 8px; border-radius: 12px; font-weight: bold; background: #e74c3c; color: #fff;">Offline</span>
+            <span id="hs-time" style="font-size: 0.75rem; color: #64748b;">--</span>
+        </div>
+        <div style="font-size: 0.9rem; line-height: 1.5;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="color: #94a3b8;">Status</span>
+                <strong><span id="hs-activity">--</span></strong>
+            </div>
+            <div id="hs-freq-row" style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="color: #94a3b8;">Frequency</span>
+                <strong><span id="hs-freq">--</span></strong>
+            </div>
+            <div id="hs-tg-row" style="display: none; justify-content: space-between; margin-bottom: 4px;">
+                <span style="color: #94a3b8;">Talkgroup</span>
+                <strong><span id="hs-tg">--</span></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                <span style="color: #94a3b8;">Mode</span>
+                <strong><span id="hs-mode">--</span></strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                <span style="color: #94a3b8;">Location</span>
+                <strong><span id="hs-loc" style="font-size: 0.8rem;">--</span></strong>
+            </div>
+            <div style="border-top: 1px dashed #334155; padding-top: 8px; margin-top: 8px; color: #cbd5e1; font-style: italic; font-size: 0.8rem; text-align: center;">
+                "<span id="hs-message">No status set.</span>"
+            </div>
+        </div>
+    </div>
+</div>
+                    
+                    <!-- QUICK LINKS -->
+                    <div class="card">
+                        <h3 class="section-title">Quick Links</h3>
+                        <a href="https://logbook.qrz.com" target="_blank" class="btn">QRZ Logbook</a>
+                        <a href="https://lotw.arrl.org/lotwuser/default" target="_blank" class="btn">LoTW Portal</a>
+                        <a href="https://www.eqsl.cc/Member.cfm?W8MB" target="_blank" class="btn">eQSL Profile</a>
+                    </div>
+
+                    <!-- SOLAR CONDITIONS -->
+                    <div class="card text-center">
+                        <h3 class="section-title text-left">Propagation</h3>
+                        <a href="https://www.hamqsl.com/solar.html" target="_blank" title="Click to add Solar-Terrestrial Data to your website!" class="prop-link">
+                            <img src="https://www.hamqsl.com/solar100sc.php" alt="Solar-Terrestrial Data" class="prop-img" />
+                        </a>
+                    </div>
+                    
+                    <!-- FIND ME -->
+                    <div class="card">
+                        <h3 class="section-title">Find Me</h3>
+                        <div class="sidebar-row bottom-border">
+                             <span style="color: #94a3b8;">Email</span>
+                            <a href="mailto:will.w8mb@gmail.com" style="color: #38bdf8; font-weight: 500; font-size: 0.75rem; text-decoration: none;">
+                                will.w8mb@gmail.com
+                            </a>
+                        </div>
+                        <div class="sidebar-row social-row">
+                            <span>Social</span>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/wbest522/" target="_blank">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" class="social-icon" />
+                                </a>
+                                <a href="https://www.instagram.com/wbest522/" target="_blank">
+                                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" class="social-icon" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+
+<!-- RIGHT MAIN CONTENT -->
+<td class="main-col">
+    
+    <!-- HELLO CARD -->
+    <div class="card padding-lg">
+        <h2 class="hello-header">HELLO FROM W8MB!</h2>
+        <table role="presentation" class="inner-layout-table">
+            <tr>
+                <td class="bio-text-cell">
+                    My amateur radio journey began in 2020. It started with off-roading and a YouTube video about trail communications that introduced me to ham radio. What began as a way to talk on the trail has grown into a deep passion for learning, building, experimenting, and helping others discover the hobby.<br><br>
+                    Today, I love operating HF portable, assembling antennas, digital modes, and diving head-first into Morse code. I also serve as an EMT and volunteer firefighter, and enjoy keeping our department's radio programming optimized. Thanks for stopping by!<br><br>
+                    
+                    <div class="station-journey-link">
+                        For more photos, background, and the stories behind the gear: 
+                        <a href="https://will-83.github.io/about.html" target="_blank">Read my complete station journey here.</a>
+                    </div>
+                    <div class="signature">
+                        <span class="sig-73">73,</span><br>
+                        <span class="sig-name">Will</span>
+                    </div>
+                </td>
+                <td class="bio-img-cell">
+                    <a href="field-day2026.html" class="tower-link-container">
+                        <img src="images/Fire_tower.jpg" alt="ARRL Field Day 2026" class="bio-img">
+                        <div class="img-caption">
+                            ARRL Field Day 2026<br>
+                            <span class="caption-subtext">Portable from a 100' Missouri watchtower</span>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+                    <!-- MY STATION -->
+                    <div class="card padding-lg">
+                        <h2 class="section-heading">My Station</h2>
+                        <table role="presentation" class="station-grid-table">
+                            <tr>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">HF Portable</div>
+                                        <div class="grid-title">Yaesu FT-857D</div>
+                                        <div class="grid-desc">Homebrew Linked Dipole (40m-10m)</div>
+                                    </div>
+                                </td>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">VHF / UHF Mobile</div>
+                                        <div class="grid-title">TYT TH-9800</div>
+                                        <div class="grid-desc">Quad-band using N9TAX Slim-Jim</div>
+                                    </div>
+                                </td>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">Digital Voice</div>
+                                        <div class="grid-title">DMR / YSF / NXDN</div>
+                                        <div class="grid-desc">Baofeng DM-32, Kenwood NX-220, MMDVM Hotspot</div>
+                                    </div>
+                                </td>
+                                <td class="grid-cell">
+                                    <div class="grid-card">
+                                        <div class="grid-tag">Handhelds</div>
+                                        <div class="grid-title">Baofeng UV-5R</div>
+                                        <div class="grid-desc">The original rig & reliable backup</div>
+                                        <div class="grid-title spacing-top">Baofeng 5R Mini</div>
+                                        <div class="grid-desc">EDC For Size</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- LATEST PROJECTS -->
+                    <div class="card padding-lg">
+                        <h2 class="section-heading">
+                            <a href="projects.html" style="color: inherit; text-decoration: none;">Latest Workbench Projects →</a>
+                        </h2>
+                        <table role="presentation" class="projects-grid-table">
+                            <tr>
+                                <td class="project-cell">
+                                    <div class="project-card">
+                                        <img src="images/Dipole.jpg" alt="Linked Dipole" />
+                                        <div class="project-card-body">
+                                            <div class="project-title">Linked Dipole</div>
+                                            <div class="project-desc">10m-40m multi-band build utilizing an FT-240-31 common-mode choke.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="project-cell">
+                                    <div class="project-card">
+                                        <img src="images/Key.jpg" alt="Morse Code Key" />
+                                        <div class="project-card-body">
+                                            <div class="project-title">Learning CW</div>
+                                            <div class="project-desc">Focusing strictly on pure audio head-copy via Morse Ninja with my Putikeeg keys.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="project-cell">
+                                    <div class="project-card">
+                                        <img src="images/Wio_L1.jpg" alt="Meshtastic Node" />
+                                        <div class="project-card-body">
+                                            <div class="project-title">Meshtastic Nodes</div>
+                                            <div class="project-desc">Configuring Heltec V4 base nodes and custom Wio Tracker L1 enclosures.</div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- TIMELINE & OFF THE AIR SPLIT -->
+                    <table role="presentation" class="split-table">
+                        <tr>
+                            <td class="split-cell padding-right">
+                                <div class="card padding-lg height-full">
+                                    <h2 class="section-heading">My Story</h2>
+                                    <div class="timeline">
+                                        <div class="timeline-item">
+                                            <div class="timeline-year">2020</div>
+                                            <div class="timeline-desc">Got licensed (Tech + General) after discovering ham radio through off-roading. Built first HF antennas.</div>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <div class="timeline-year">2026</div>
+                                            <div class="timeline-desc">Earned Amateur Extra class license & became a Volunteer Examiner (VE). Operated from the 100ft watchtower.</div>
+                                        </div>
+                                        <div class="timeline-item no-margin">
+                                            <div class="timeline-year">Current</div>
+                                            <div class="timeline-desc">Diving into CW head copy, building portable gear, and expanding local digital infrastructure.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="split-cell padding-left">
+                                <div class="card padding-lg height-full">
+                                    <h2 class="section-heading">Off The Air</h2>
+                                    <ul class="interests-list">
+                                        <li><span>»</span> EMT & Volunteer Firefighter</li>
+                                        <li><span>»</span> Radio Programming for First Responders</li>
+                                        <li><span>»</span> 3D Printing & CAD (Ender 3 / Klipper / PETG)</li>
+                                        <li><span>»</span> Jeep Wranglers & Off-Roading Adventures</li>
+                                        <li><span>»</span> Hiking, Camping, Hunting & Fishing</li>
+                                        <li><span>»</span> Locksport</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </td>
+            </tr>
+        </table>
+
+        <!-- AFFILIATIONS FOOTER STRIP -->
+        <div class="footer-affiliations">
+            <div class="logo-item">
+                <a href="https://www.arrl.org/volunteer-examiners" target="_blank">
+                    <img src="images/ARRL_logo.jpg" alt="ARRL VE Logo" />
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://smarc.org/" target="_blank">
+                    <img src="images/SMARC_logo.jpg" alt="SMARC Logo" />
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://lzmesh.com" target="_blank">
+                    <img src="images/LZMesh_logo.jpg" alt="LZMesh Community" />
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://lzarc.com" target="_blank">
+                    <img src="images/LZARC_logo.JPG" alt="LZARC (W0LZ)" />
+                </a>
+            </div>
+        </div>
+
+        <!-- CLEAN COPYRIGHT FOOTER -->
+        <div class="footer-copyright">
+            Thank you for visiting my QRZ page! &bull; 73, Will - W8MB
+        </div>
+    </div>
+
+<script>
+    // --- Mobile Menu Toggle ---
+    const menuBtn = document.getElementById('drawer-toggle');
+    const sidebar = document.querySelector('.sidebar-col');
+
+    menuBtn.addEventListener('click', function(e) {
+        sidebar.classList.toggle('drawer-open');
+        e.stopPropagation();
+    });
+
+    document.addEventListener('click', function(e) {
+        if (sidebar.classList.contains('drawer-open') && !sidebar.contains(e.target)) {
+            sidebar.classList.remove('drawer-open');
+        }
+    });
+
+    // --- Dynamic HamStatus Fetcher ---
+    const HS_STATE_COLORS = {
+        on_air: { label: 'ON AIR', bg: '#2ecc71' },
+        monitoring: { label: 'MONITORING', bg: '#f0ad4e' },
+        off_air: { label: 'OFFLINE', bg: '#e74c3c' }
+    };
+
+    async function fetchHamStatus() {
+        try {
+            // Fetches the JSON file from the root of your website
+            const response = await fetch('https://will-83.github.io/hamstatus/status.json?t=' + Date.now(), { cache: 'no-store' });
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.json();
+
+            // Supports both the v1.0 schema (frequency as an object, state as an
+            // enum) and the older flat schema, so this keeps working even against
+            // a status.json that hasn't been migrated yet.
+            const freq = (data.frequency && typeof data.frequency === 'object')
+                ? data.frequency
+                : { value: data.frequency, unit: 'MHz' };
+            const state = data.state || (data.is_active ? 'on_air' : 'off_air');
+
+            // Update HTML elements with JSON data
+            document.getElementById('hs-activity').textContent = data.activity || data.operating_mode || '--';
+            document.getElementById('hs-mode').textContent = data.mode;
+            document.getElementById('hs-loc').textContent = `${data.location.description} (${data.location.grid_square})`;
+            document.getElementById('hs-message').textContent = data.custom_message;
+
+            // DMR sessions with an active talkgroup show "TG <id> - <name>" in
+            // place of the Frequency row; everything else shows frequency.
+            const freqRow = document.getElementById('hs-freq-row');
+            const tgRow = document.getElementById('hs-tg-row');
+            if (data.mode === 'DMR' && data.talkgroup) {
+                freqRow.style.display = 'none';
+                tgRow.style.display = 'flex';
+                const tgLabel = data.talkgroup_name && data.talkgroup_name !== String(data.talkgroup)
+                    ? `TG ${data.talkgroup} - ${data.talkgroup_name}`
+                    : `TG ${data.talkgroup}`;
+                document.getElementById('hs-tg').textContent = tgLabel;
+            } else {
+                freqRow.style.display = 'flex';
+                tgRow.style.display = 'none';
+                document.getElementById('hs-freq').textContent = `${freq.value ?? '--'} ${freq.unit || 'MHz'}`;
+            }
+            
+            // Format time
+            const updateTime = new Date(data.last_updated);
+            document.getElementById('hs-time').textContent = updateTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+            // Toggle status indicator colors (on_air / monitoring / off_air)
+            const indicator = document.getElementById('hs-indicator');
+            const info = HS_STATE_COLORS[state] || HS_STATE_COLORS.off_air;
+            indicator.textContent = info.label;
+            indicator.style.background = info.bg;
+        } catch (error) {
+            console.error('Error fetching HamStatus:', error);
+            document.getElementById('hs-message').textContent = "Unable to load live status.";
+        }
+    }
+
+    // Run the function when the page loads
+    fetchHamStatus();
+</script>
+</body>
+</html>
