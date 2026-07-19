@@ -80,6 +80,13 @@
                 <div id="hs-aprs-comment" style="color: #94a3b8; font-style: italic; margin-top: 3px;"></div>
                 <div id="hs-aprs-msg" style="color: #64748b; font-size: 0.75rem; margin-top: 3px;"></div>
             </div>
+            <div id="hs-last-heard-section" style="display: none; border-top: 1px dashed #334155; padding-top: 8px; margin-top: 8px; font-size: 0.8rem;">
+                <div style="display: flex; justify-content: space-between; color: #94a3b8;">
+                    <span>Last Heard</span>
+                    <span id="hs-last-heard-ago">--</span>
+                </div>
+                <div id="hs-last-heard-detail" style="color: #94a3b8; font-style: italic; margin-top: 3px;"></div>
+            </div>
         </div>
     </div>
 </div>
@@ -408,6 +415,26 @@
                 }
             } else {
                 aprsSection.style.display = 'none';
+            }
+
+            // Last Heard: a persisted snapshot of the most recent DMR
+            // session, captured the moment it went off_air.
+            const lastHeardSection = document.getElementById('hs-last-heard-section');
+            if (data.last_heard && data.last_heard.time) {
+                lastHeardSection.style.display = 'block';
+                document.getElementById('hs-last-heard-ago').textContent = hsTimeAgo(data.last_heard.time);
+                const lh = data.last_heard;
+                const parts = [];
+                if (lh.talkgroup) {
+                    parts.push(lh.talkgroup_name && lh.talkgroup_name !== String(lh.talkgroup)
+                        ? `TG ${lh.talkgroup} - ${lh.talkgroup_name}`
+                        : `TG ${lh.talkgroup}`);
+                }
+                if (lh.network) parts.push(lh.network);
+                if (lh.mode) parts.push(lh.mode);
+                document.getElementById('hs-last-heard-detail').textContent = parts.join(' \u00b7 ');
+            } else {
+                lastHeardSection.style.display = 'none';
             }
         } catch (error) {
             console.error('Error fetching HamStatus:', error);
