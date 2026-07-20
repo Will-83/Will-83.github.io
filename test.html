@@ -367,14 +367,22 @@
             document.getElementById('hs-loc').textContent = `${data.location.description} (${data.location.grid_square})`;
             document.getElementById('hs-message').textContent = data.custom_message || 'No status set.';
 
-            // DMR sessions with an active talkgroup show "TG <id> - <name>" in
-            // place of the Frequency row; everything else shows frequency.
+            // Any session with an active talkgroup (DMR, NXDN, P25) shows
+            // "TG <id> - <name>" in place of the Frequency row; everything
+            // else shows frequency. The backend only ever sets talkgroup for
+            // an actual group call, so its presence alone is the right check
+            // -- not every mode that can have one.
             const freqRow = document.getElementById('hs-freq-row');
             const tgRow = document.getElementById('hs-tg-row');
-            if (data.mode === 'DMR' && data.talkgroup) {
+            if (data.talkgroup) {
                 freqRow.style.display = 'none';
                 tgRow.style.display = 'flex';
-                const tgLabel = data.talkgroup_name && data.talkgroup_name !== String(data.talkgroup)
+                // Modes with no real name lookup yet (NXDN, P25) fall back to
+                // "TG <id>" as talkgroup_name itself -- comparing against the
+                // bare number would treat that as a "real" name and show it
+                // twice ("TG 12345 - TG 12345"), so compare against the same
+                // fallback format instead.
+                const tgLabel = data.talkgroup_name && data.talkgroup_name !== `TG ${data.talkgroup}`
                     ? `TG ${data.talkgroup} - ${data.talkgroup_name}`
                     : `TG ${data.talkgroup}`;
                 document.getElementById('hs-tg').textContent = tgLabel;
@@ -426,7 +434,8 @@
                 const lh = data.last_heard;
                 const parts = [];
                 if (lh.talkgroup) {
-                    parts.push(lh.talkgroup_name && lh.talkgroup_name !== String(lh.talkgroup)
+                    // Same fallback-name comparison as the live talkgroup row above.
+                    parts.push(lh.talkgroup_name && lh.talkgroup_name !== `TG ${lh.talkgroup}`
                         ? `TG ${lh.talkgroup} - ${lh.talkgroup_name}`
                         : `TG ${lh.talkgroup}`);
                 }
